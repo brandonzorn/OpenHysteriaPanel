@@ -1,0 +1,5 @@
+Django==4.2.*
+django-allauth>=65.1.0
+django-settings-export>=1.2.1
+gunicorn>=23.0.0
+python-decouple>=3.8
