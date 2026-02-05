@@ -66,11 +66,14 @@
             <form id="clientForm" class="grid grid-cols-1 md:grid-cols-2 gap-5 mt-2">
                 <div class="md:col-span-2">
                     <span class="label-text">{% trans "Username" %}</span>
-                    <input id="clientUsername" name="username" type="text" required aria-label="Username" class="input-field" />
+                    <input id="clientUsername" name="username" type="text" required minlength="4" pattern="[A-Za-z0-9]+" aria-label="Username" class="input-field" />
                 </div>
                 <div class="md:col-span-2">
                     <span class="label-text">{% trans "Password" %}</span>
-                    <input id="clientPassword" name="password" type="text" required aria-label="Password" class="input-field" />
+                    <div class="flex gap-2">
+                        <input id="clientPassword" name="password" type="text" required minlength="8" pattern="[A-Za-z0-9]+" aria-label="Password" class="input-field" />
+                        <button id="generatePasswordButton" type="button" class="btn-ghost px-4">{% trans "Generate" %}</button>
+                    </div>
                 </div>
                 <div>
                     <span class="label-text">{% trans "Upload limit (Mbps)" %}</span>

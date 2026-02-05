@@ -164,6 +164,24 @@
         C.state.deleteId = null;
     }
 
+    function generatePassword(length = 12) {
+        const charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        const max = charset.length;
+        let result = "";
+        if (window.crypto && window.crypto.getRandomValues) {
+            const values = new Uint32Array(length);
+            window.crypto.getRandomValues(values);
+            for (let i = 0; i < values.length; i += 1) {
+                result += charset[values[i] % max];
+            }
+            return result;
+        }
+        for (let i = 0; i < length; i += 1) {
+            result += charset[Math.floor(Math.random() * max)];
+        }
+        return result;
+    }
+
     async function refreshClients() {
         try {
             const clients = await api.listClients();
@@ -261,6 +279,14 @@
         }
         if (C.elements.cancelButton) {
             C.elements.cancelButton.addEventListener('click', closeModal);
+        }
+        if (C.elements.generatePasswordButton) {
+            C.elements.generatePasswordButton.addEventListener('click', () => {
+                if (!C.elements.inputPassword) return;
+                C.elements.inputPassword.value = generatePassword();
+                C.elements.inputPassword.focus();
+                C.elements.inputPassword.select();
+            });
         }
         if (C.elements.deleteModalClose) {
             C.elements.deleteModalClose.addEventListener('click', closeDeleteModal);

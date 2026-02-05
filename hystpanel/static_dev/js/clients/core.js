@@ -28,6 +28,7 @@
         elements.submitButton = document.getElementById('clientSubmit');
         elements.inputUsername = document.getElementById('clientUsername');
         elements.inputPassword = document.getElementById('clientPassword');
+        elements.generatePasswordButton = document.getElementById('generatePasswordButton');
         elements.inputUpload = document.getElementById('clientUpload');
         elements.inputDownload = document.getElementById('clientDownload');
         elements.inputTraffic = document.getElementById('clientTraffic');
