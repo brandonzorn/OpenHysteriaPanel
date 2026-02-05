@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-05 15:14+0300\n"
+"POT-Creation-Date: 2026-02-05 15:50+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,78 +18,94 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\clients\models.py:9 .\templates\account\login.html:27
+#: .\clients\models.py:10 .\templates\account\login.html:27
 #: .\templates\clients\clients.html:31 .\templates\clients\clients.html:68
 msgid "Username"
 msgstr ""
 
-#: .\clients\models.py:13 .\clients\models.py:19
+#: .\clients\models.py:14 .\clients\models.py:20
 msgid "Letters and digits only."
 msgstr ""
 
-#: .\clients\models.py:16 .\templates\account\login.html:35
+#: .\clients\models.py:17 .\templates\account\login.html:35
 #: .\templates\clients\clients.html:72
 msgid "Password"
 msgstr ""
 
-#: .\clients\models.py:22 .\templates\clients\clients.html:79
+#: .\clients\models.py:23 .\templates\clients\clients.html:79
 msgid "Upload limit (Mbps)"
 msgstr ""
 
-#: .\clients\models.py:24
+#: .\clients\models.py:25
 msgid "0 means unlimited upload speed."
 msgstr ""
 
-#: .\clients\models.py:27 .\templates\clients\clients.html:83
+#: .\clients\models.py:28 .\templates\clients\clients.html:83
 msgid "Download limit (Mbps)"
 msgstr ""
 
-#: .\clients\models.py:29
+#: .\clients\models.py:30
 msgid "0 means unlimited download speed."
 msgstr ""
 
-#: .\clients\models.py:32 .\templates\clients\clients.html:87
+#: .\clients\models.py:33 .\templates\clients\clients.html:87
 msgid "Traffic limit (GB)"
 msgstr ""
 
-#: .\clients\models.py:34
+#: .\clients\models.py:35
 msgid "0 means unlimited traffic."
 msgstr ""
 
-#: .\clients\models.py:37
+#: .\clients\models.py:38
 msgid "Traffic used (GB)"
 msgstr ""
 
-#: .\clients\models.py:39
+#: .\clients\models.py:40
 msgid "Total traffic used by the client."
 msgstr ""
 
-#: .\clients\models.py:42 .\templates\clients\clients.html:91
+#: .\clients\models.py:43 .\templates\clients\clients.html:91
 msgid "Expires at"
 msgstr ""
 
-#: .\clients\models.py:45
+#: .\clients\models.py:46
 msgid "Leave empty for no expiration."
 msgstr ""
 
-#: .\clients\models.py:48 .\templates\clients\clients.html:96
+#: .\clients\models.py:49 .\templates\clients\clients.html:96
 msgid "Active"
 msgstr ""
 
-#: .\clients\models.py:50
+#: .\clients\models.py:51
 msgid "Inactive clients cannot connect."
 msgstr ""
 
-#: .\clients\models.py:53
+#: .\clients\models.py:54
 msgid "Created at"
 msgstr ""
 
-#: .\clients\models.py:58
+#: .\clients\models.py:56
+msgid "Creation time."
+msgstr ""
+
+#: .\clients\models.py:59
+msgid "Updated at"
+msgstr ""
+
+#: .\clients\models.py:61
+msgid "Last update time."
+msgstr ""
+
+#: .\clients\models.py:65
 msgid "Client"
 msgstr ""
 
-#: .\clients\models.py:59 .\templates\includes\sidebar.html:17
+#: .\clients\models.py:66 .\templates\includes\sidebar.html:17
 msgid "Clients"
+msgstr ""
+
+#: .\core\validators.py:6
+msgid "Only letters and digits are allowed."
 msgstr ""
 
 #: .\hystpanel\settings.py:144
