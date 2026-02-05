@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-05 16:21+0300\n"
+"POT-Creation-Date: 2026-02-05 22:51+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,31 +26,31 @@ msgstr ""
 msgid "Credentials"
 msgstr ""
 
-#: .\clients\admin.py:43
+#: .\clients\admin.py:42
 msgid "Speed limits"
 msgstr ""
 
-#: .\clients\admin.py:52
+#: .\clients\admin.py:51
 msgid "Traffic"
 msgstr ""
 
-#: .\clients\admin.py:61
+#: .\clients\admin.py:60
 msgid "Access"
 msgstr ""
 
-#: .\clients\admin.py:67
+#: .\clients\admin.py:69
 msgid "Timestamps"
 msgstr ""
 
-#: .\clients\admin.py:77 .\clients\models.py:54
+#: .\clients\admin.py:79 .\clients\models.py:54
 msgid "Created at"
 msgstr ""
 
-#: .\clients\admin.py:81 .\clients\models.py:59
+#: .\clients\admin.py:83 .\clients\models.py:59 .\settings\models.py:38
 msgid "Updated at"
 msgstr ""
 
-#: .\clients\admin.py:85 .\clients\models.py:43
+#: .\clients\admin.py:87 .\clients\models.py:43
 #: .\templates\clients\clients.html:91
 msgid "Expires at"
 msgstr ""
@@ -60,8 +60,8 @@ msgstr ""
 msgid "Clients"
 msgstr ""
 
-#: .\clients\models.py:10 .\templates\account\login.html:27
-#: .\templates\clients\clients.html:31 .\templates\clients\clients.html:68
+#: .\clients\models.py:10 .\templates\clients\clients.html:31
+#: .\templates\clients\clients.html:68
 msgid "Username"
 msgstr ""
 
@@ -69,8 +69,7 @@ msgstr ""
 msgid "Letters and digits only."
 msgstr ""
 
-#: .\clients\models.py:17 .\templates\account\login.html:35
-#: .\templates\clients\clients.html:72
+#: .\clients\models.py:17 .\templates\clients\clients.html:72
 msgid "Password"
 msgstr ""
 
@@ -134,40 +133,90 @@ msgstr ""
 msgid "Core"
 msgstr ""
 
-#: .\core\validators.py:6
+#: .\core\validators.py:11
 msgid "Only letters and digits are allowed."
+msgstr ""
+
+#: .\core\validators.py:18
+#, python-format
+msgid "Port %(port)s is reserved. Choose another port."
+msgstr ""
+
+#: .\core\validators.py:23
+#, python-format
+msgid "Port must be between %(min)s and %(max)s."
 msgstr ""
 
 #: .\dashboard\apps.py:8 .\templates\includes\sidebar.html:13
 msgid "Dashboard"
 msgstr ""
 
-#: .\hystpanel\settings.py:144
+#: .\hystpanel\settings.py:154
 msgid "English"
 msgstr "English"
 
-#: .\hystpanel\settings.py:145
+#: .\hystpanel\settings.py:155
 msgid "Russian"
 msgstr "Русский"
+
+#: .\settings\apps.py:7 .\templates\includes\sidebar.html:21
+#: .\templates\settings\settings.html:7
+msgid "Settings"
+msgstr ""
+
+#: .\settings\models.py:11
+msgid "Domain"
+msgstr ""
+
+#: .\settings\models.py:13
+msgid "Primary domain for the panel."
+msgstr ""
+
+#: .\settings\models.py:16
+msgid "Panel port"
+msgstr ""
+
+#: .\settings\models.py:22
+msgid "External port where the panel is available."
+msgstr ""
+
+#: .\settings\models.py:25
+msgid "Hysteria port"
+msgstr ""
+
+#: .\settings\models.py:31
+msgid "Port used by the Hysteria server."
+msgstr ""
+
+#: .\settings\models.py:34
+msgid "Masquerade site"
+msgstr ""
+
+#: .\settings\models.py:35
+msgid "Site URL used for Hysteria masquerade."
+msgstr ""
+
+#: .\settings\models.py:43 .\settings\models.py:44 .\settings\models.py:47
+msgid "Panel settings"
+msgstr ""
+
+#: .\settings\models.py:58
+msgid "Panel port and Hysteria port must be different."
+msgstr ""
 
 #: .\templates\400.html:8
 msgid "Bad request"
 msgstr ""
 
-#: .\templates\400.html:9
-msgid "Check the data and try again."
-msgstr ""
-
-#: .\templates\400.html:10 .\templates\403.html:10 .\templates\404.html:10
-#: .\templates\500.html:10
-msgid "Go to dashboard"
+#: .\templates\400.html:10
+msgid "Check the submitted data and try again."
 msgstr ""
 
 #: .\templates\403.html:8
 msgid "Access denied"
 msgstr ""
 
-#: .\templates\403.html:9
+#: .\templates\403.html:10
 msgid "You do not have permission to access this page."
 msgstr ""
 
@@ -175,42 +224,54 @@ msgstr ""
 msgid "Page not found"
 msgstr ""
 
-#: .\templates\404.html:9
-msgid "The page was not found. Check the address or return to the dashboard."
+#: .\templates\404.html:10
+msgid "The page you are looking for does not exist."
 msgstr ""
 
 #: .\templates\500.html:8
 msgid "Server error"
 msgstr ""
 
-#: .\templates\500.html:9
-msgid "Something went wrong. Please try again later."
+#: .\templates\500.html:10
+msgid "An internal server error occurred. Please try again later."
 msgstr ""
 
-#: .\templates\account\login.html:5 .\templates\account\login.html:14
-#: .\templates\account\login.html:43 .\templates\includes\sidebar.html:41
+#: .\templates\account\login.html:4 .\templates\account\login.html:16
+#: .\templates\account\login.html:51 .\templates\includes\sidebar.html:41
 msgid "Log in"
 msgstr ""
 
-#: .\templates\account\login.html:15
+#: .\templates\account\login.html:17
 msgid "Use your username and password to continue."
 msgstr ""
 
-#: .\templates\account\logout.html:5 .\templates\account\logout.html:9
-#: .\templates\account\logout.html:15 .\templates\includes\sidebar.html:36
+#: .\templates\account\logout.html:4 .\templates\account\logout.html:9
+#: .\templates\account\logout.html:20 .\templates\includes\sidebar.html:36
 msgid "Log out"
 msgstr ""
 
-#: .\templates\account\logout.html:10
+#: .\templates\account\logout.html:12
 msgid "Are you sure you want to log out?"
 msgstr ""
 
-#: .\templates\account\logout.html:17 .\templates\clients\clients.html:100
+#: .\templates\account\logout.html:23 .\templates\clients\clients.html:100
 #: .\templates\clients\clients.html:120
 msgid "Cancel"
 msgstr ""
 
-#: .\templates\base.html:9
+#: .\templates\base-error.html:27
+msgid "Something went wrong"
+msgstr ""
+
+#: .\templates\base-error.html:30
+msgid "An unexpected error occurred."
+msgstr ""
+
+#: .\templates\base-error.html:34
+msgid "Go to dashboard"
+msgstr ""
+
+#: .\templates\base.html:10
 msgid "Hysteria2 Panel"
 msgstr ""
 
@@ -350,10 +411,14 @@ msgstr ""
 msgid "Out"
 msgstr ""
 
-#: .\templates\includes\sidebar.html:21
-msgid "Settings"
-msgstr ""
-
 #: .\templates\includes\sidebar.html:25
 msgid "Admin"
+msgstr ""
+
+#: .\templates\settings\settings.html:8
+msgid "Configure domain, ports, and Hysteria masquerade."
+msgstr ""
+
+#: .\templates\settings\settings.html:34
+msgid "Save settings"
 msgstr ""
