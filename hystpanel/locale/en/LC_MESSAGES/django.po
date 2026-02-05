@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-05 15:50+0300\n"
+"POT-Creation-Date: 2026-02-05 15:56+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\api\apps.py:8
+msgid "API"
+msgstr ""
+
+#: .\clients\apps.py:7 .\clients\models.py:66
+#: .\templates\includes\sidebar.html:17
+msgid "Clients"
+msgstr ""
 
 #: .\clients\models.py:10 .\templates\account\login.html:27
 #: .\templates\clients\clients.html:31 .\templates\clients\clients.html:68
@@ -100,12 +109,16 @@ msgstr ""
 msgid "Client"
 msgstr ""
 
-#: .\clients\models.py:66 .\templates\includes\sidebar.html:17
-msgid "Clients"
+#: .\core\apps.py:7
+msgid "Core"
 msgstr ""
 
 #: .\core\validators.py:6
 msgid "Only letters and digits are allowed."
+msgstr ""
+
+#: .\dashboard\apps.py:8 .\templates\includes\sidebar.html:13
+msgid "Dashboard"
 msgstr ""
 
 #: .\hystpanel\settings.py:144
@@ -314,10 +327,6 @@ msgstr ""
 
 #: .\templates\dashboard\dashboard.html:123
 msgid "Out"
-msgstr ""
-
-#: .\templates\includes\sidebar.html:13
-msgid "Dashboard"
 msgstr ""
 
 #: .\templates\includes\sidebar.html:21

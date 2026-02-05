@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-05 15:50+0300\n"
+"POT-Creation-Date: 2026-02-05 15:56+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,15 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: .\api\apps.py:8
+msgid "API"
+msgstr "API"
+
+#: .\clients\apps.py:7 .\clients\models.py:66
+#: .\templates\includes\sidebar.html:17
+msgid "Clients"
+msgstr "Клиенты"
 
 #: .\clients\models.py:10 .\templates\account\login.html:27
 #: .\templates\clients\clients.html:31 .\templates\clients\clients.html:68
@@ -102,13 +111,17 @@ msgstr "Время последнего обновления."
 msgid "Client"
 msgstr "Клиент"
 
-#: .\clients\models.py:66 .\templates\includes\sidebar.html:17
-msgid "Clients"
-msgstr "Клиенты"
+#: .\core\apps.py:7
+msgid "Core"
+msgstr "Ядро"
 
 #: .\core\validators.py:6
 msgid "Only letters and digits are allowed."
 msgstr "Разрешены только буквы и цифры."
+
+#: .\dashboard\apps.py:8 .\templates\includes\sidebar.html:13
+msgid "Dashboard"
+msgstr "Панель"
 
 #: .\hystpanel\settings.py:144
 msgid "English"
@@ -317,10 +330,6 @@ msgstr "Входящий"
 #: .\templates\dashboard\dashboard.html:123
 msgid "Out"
 msgstr "Исходящий"
-
-#: .\templates\includes\sidebar.html:13
-msgid "Dashboard"
-msgstr "Панель"
 
 #: .\templates\includes\sidebar.html:21
 msgid "Settings"
