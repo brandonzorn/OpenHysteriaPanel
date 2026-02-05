@@ -1,0 +1,23 @@
+services:
+  hysteria:
+    image: tobyxdd/hysteria
+    container_name: hysteria
+    restart: unless-stopped
+    network_mode: "host"
+    volumes:
+      - ./acme:/acme
+      - ./hysteria.yaml:/etc/hysteria.yaml
+    command: ["server", "-c", "/etc/hysteria.yaml"]
+
+  web-panel:
+    build: .
+    container_name: hysteria-web-panel
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - ./etc:/etc
+    depends_on:
+      - hysteria
+volumes:
+  acme:
