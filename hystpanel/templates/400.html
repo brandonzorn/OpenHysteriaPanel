@@ -1,4 +1,4 @@
-{% extends "layouts/base-error.html" %}
+{% extends "base-error.html" %}
 {% load i18n %}
 
 {% block title %}400 | HysteriaPanel{% endblock %}
@@ -6,5 +6,6 @@
 {% block accent_class %}bg-yellow-500/10{% endblock %}
 {% block error_code %}400{% endblock %}
 {% block error_title %}{% trans "Bad request" %}{% endblock %}
-{% block error_message %}{% trans "Check the data and try again." %}{% endblock %}
-{% block action_label %}{% trans "Go to dashboard" %}{% endblock %}
+{% block error_message %}
+    {% trans "Check the submitted data and try again." %}
+{% endblock %}

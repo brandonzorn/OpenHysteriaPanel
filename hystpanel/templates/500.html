@@ -1,10 +1,11 @@
-{% extends "layouts/base-error.html" %}
+{% extends "base-error.html" %}
 {% load i18n %}
 
 {% block title %}500 | HysteriaPanel{% endblock %}
 
-{% block accent_class %}bg-purple-500/10{% endblock %}
+{% block accent_class %}bg-red-500/10{% endblock %}
 {% block error_code %}500{% endblock %}
 {% block error_title %}{% trans "Server error" %}{% endblock %}
-{% block error_message %}{% trans "Something went wrong. Please try again later." %}{% endblock %}
-{% block action_label %}{% trans "Go to dashboard" %}{% endblock %}
+{% block error_message %}
+    {% trans "An internal server error occurred. Please try again later." %}
+{% endblock %}

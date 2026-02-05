@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="flex h-screen">
+  {% include "includes/sidebar.html" %}
+  <main class="flex-1 overflow-y-auto relative">
+    {% include "includes/mobile-header.html" %}
+    <div class="p-6 lg:p-10 max-w-[1600px] mx-auto">
+      {% block content %}{% endblock %}
+    </div>
+  </main>
+</div>
+{% endblock %}

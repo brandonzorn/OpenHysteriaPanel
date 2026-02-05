@@ -1,46 +1,54 @@
 {% extends "layouts/centered.html" %}
-
 {% load i18n %}
 
 {% block title %}{% trans "Log in" %} | HysteriaPanel{% endblock %}
 
 {% block card %}
-    <div class="absolute -right-8 -top-8 w-32 h-32 bg-indigo-500/10 rounded-full blur-2xl pointer-events-none"></div>
-    <div class="flex items-center mb-6">
-        <svg class="w-8 h-8 text-indigo-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-        <h1 class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">HysteriaPanel</h1>
-    </div>
+  <div class="absolute -right-8 -top-8 w-32 h-32 bg-indigo-500/10 rounded-full blur-2xl pointer-events-none"></div>
+  <div class="flex items-center mb-6">
+    <svg class="w-8 h-8 text-indigo-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+    </svg>
+    <h1 class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
+      HysteriaPanel
+    </h1>
+  </div>
+  <h2 class="text-xl font-semibold text-white mb-2">{% trans "Log in" %}</h2>
+  <p class="text-sm text-gray-400 mb-6">{% trans "Use your username and password to continue." %}</p>
 
-    <h2 class="text-xl font-semibold text-white mb-2">{% trans "Log in" %}</h2>
-    <p class="text-sm text-gray-400 mb-6">{% trans "Use your username and password to continue." %}</p>
-
-    <form method="post" action="{% url 'account_login' %}" class="space-y-4">
-        {% csrf_token %}
-
-        {% if form.non_field_errors %}
-            <div class="text-sm text-red-400 bg-red-500/10 border border-red-500/20 rounded-lg px-3 py-2">
-                {{ form.non_field_errors }}
-            </div>
+  <form method="post" action="{% url 'account_login' %}" class="space-y-4">
+    {% csrf_token %}
+    {% if next %}
+      <input type="hidden" name="next" value="{{ next }}">
+    {% endif %}
+    {% if form.non_field_errors %}
+      <div class="text-sm text-red-400 bg-red-500/10 border border-red-500/20 rounded-lg px-3 py-2">
+        {{ form.non_field_errors|striptags }}
+      </div>
+    {% endif %}
+    {% for field in form %}
+      {% if field.field.widget.input_type == "checkbox" %}
+        <div class="flex items-center gap-3">
+          {{ field }}
+          <label for="{{ field.id_for_label }}" class="text-sm text-gray-300">
+            {{ field.label }}
+          </label>
+        </div>
+        {% if field.errors %}
+          <p class="text-xs text-red-400 mt-1">{{ field.errors|striptags }}</p>
         {% endif %}
-
+      {% else %}
         <div>
-            <label class="label-text" for="id_login">{% trans "Username" %}</label>
-            <input id="id_login" name="login" type="text" autocomplete="username" required class="input-field" />
-            {% if form.login.errors %}
-                <p class="text-xs text-red-400 mt-2">{{ form.login.errors }}</p>
-            {% endif %}
+          <label for="{{ field.id_for_label }}" class="label-text">{{ field.label }}</label>
+          {{ field }}
+          {% if field.errors %}
+            <p class="text-xs text-red-400 mt-1">{{ field.errors|striptags }}</p>
+          {% endif %}
         </div>
-
-        <div>
-            <label class="label-text" for="id_password">{% trans "Password" %}</label>
-            <input id="id_password" name="password" type="password" autocomplete="current-password" required class="input-field" />
-            {% if form.password.errors %}
-                <p class="text-xs text-red-400 mt-2">{{ form.password.errors }}</p>
-            {% endif %}
-        </div>
-
-        <button type="submit" class="btn-primary w-full mt-2 py-2.5">
-            {% trans "Log in" %}
-        </button>
-    </form>
+      {% endif %}
+    {% endfor %}
+    <button type="submit" class="btn-primary w-full mt-2 py-2.5">
+      {% trans "Log in" %}
+    </button>
+  </form>
 {% endblock %}

@@ -129,6 +129,9 @@ DEFAULT_USER_IS_ACTIVE = bool(
 SITE_ID = config("SITE_ID", default=1, cast=int)
 SITE_NAME = config("SITE_NAME", default="Example", cast=str)
 
+ACCOUNT_FORMS = {
+    "login": "accounts.forms.StyledLoginForm",
+}
 ACCOUNT_LOGIN_METHODS = {"username"}
 ACCOUNT_SIGNUP_FIELDS = ["username*", "password1*", "password2*"]
 ACCOUNT_EMAIL_VERIFICATION = "none"
