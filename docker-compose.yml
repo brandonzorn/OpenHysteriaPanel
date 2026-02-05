@@ -19,6 +19,7 @@ services:
       - .env
     volumes:
       - ./hysteria/etc-panel/sqlite:/hystpanel/sqlite
+      - ./hysteria/etc-panel/static:/hystpanel/static
     depends_on:
       - hysteria
 volumes:
