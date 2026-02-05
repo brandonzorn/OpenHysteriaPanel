@@ -1,0 +1,19 @@
+listen: :7443
+
+acme:
+  domains:
+    - your.domain.com
+  ca: letsencrypt
+  email: your@email.com
+
+auth:
+  type: http
+  http:
+    url: http://web-panel:8888/api/hysteria/auth/
+    insecure: true
+
+masquerade:
+  type: proxy
+  proxy:
+    url: https://www.google.com/
+    rewriteHost: true

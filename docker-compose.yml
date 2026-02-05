@@ -3,10 +3,11 @@ services:
     image: tobyxdd/hysteria
     container_name: hysteria
     restart: unless-stopped
-    network_mode: "host"
     volumes:
       - ./hysteria/acme:/acme
       - ./hysteria/hysteria.yaml:/etc/hysteria.yaml
+    networks:
+      - panel_net
     command: ["server", "-c", "/etc/hysteria.yaml"]
 
   web-panel:
@@ -20,7 +21,13 @@ services:
     volumes:
       - ./hysteria/etc-panel/sqlite:/hystpanel/sqlite
       - ./hysteria/etc-panel/static:/hystpanel/static
+    networks:
+      - panel_net
     depends_on:
       - hysteria
+
+networks:
+  panel_net:
+
 volumes:
   acme:
