@@ -42,21 +42,28 @@ class ServerControlView(APIView):
 
 
 class HysteriaAuthView(APIView):
-    permission_classes = [IsAuthenticated, IsAdminUser]
-
     def post(self, request):
         auth_value = request.data.get("auth")
         if not auth_value:
-            return Response({"ok": False})
+            return Response(
+                {"ok": False, "error": "missing_auth"},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
 
         client = Client.objects.filter(
             password=auth_value,
             is_active=True,
         ).first()
         if not client:
-            return Response({"ok": False})
+            return Response(
+                {"ok": False, "error": "invalid_auth"},
+                status=status.HTTP_401_UNAUTHORIZED,
+            )
 
         if client.expires_at and client.expires_at < timezone.now():
-            return Response({"ok": False})
+            return Response(
+                {"ok": False, "error": "expired"},
+                status=status.HTTP_403_FORBIDDEN,
+            )
 
         return Response({"ok": True, "id": client.username})
