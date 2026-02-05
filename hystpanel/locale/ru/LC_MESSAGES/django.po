@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-05 15:56+0300\n"
+"POT-Creation-Date: 2026-02-05 16:21+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,6 +23,39 @@ msgstr ""
 #: .\api\apps.py:8
 msgid "API"
 msgstr "API"
+
+#: .\clients\admin.py:33
+msgid "Credentials"
+msgstr "Учетные данные"
+
+#: .\clients\admin.py:43
+msgid "Speed limits"
+msgstr "Лимиты скорости"
+
+#: .\clients\admin.py:52
+msgid "Traffic"
+msgstr "Трафик"
+
+#: .\clients\admin.py:61
+msgid "Access"
+msgstr "Доступ"
+
+#: .\clients\admin.py:67
+msgid "Timestamps"
+msgstr "Временные метки"
+
+#: .\clients\admin.py:77 .\clients\models.py:54
+msgid "Created at"
+msgstr "Создан"
+
+#: .\clients\admin.py:81 .\clients\models.py:59
+msgid "Updated at"
+msgstr "Обновлен"
+
+#: .\clients\admin.py:85 .\clients\models.py:43
+#: .\templates\clients\clients.html:91
+msgid "Expires at"
+msgstr "Срок действия"
 
 #: .\clients\apps.py:7 .\clients\models.py:66
 #: .\templates\includes\sidebar.html:17
@@ -75,10 +108,6 @@ msgstr "Использовано трафика (ГБ)"
 msgid "Total traffic used by the client."
 msgstr "Общий расход трафика клиента."
 
-#: .\clients\models.py:43 .\templates\clients\clients.html:91
-msgid "Expires at"
-msgstr "Срок действия"
-
 #: .\clients\models.py:46
 msgid "Leave empty for no expiration."
 msgstr "Оставьте пустым для бессрочного доступа."
@@ -91,17 +120,9 @@ msgstr "Активен"
 msgid "Inactive clients cannot connect."
 msgstr "Неактивные клиенты не могут подключаться."
 
-#: .\clients\models.py:54
-msgid "Created at"
-msgstr "Создан"
-
 #: .\clients\models.py:56
 msgid "Creation time."
 msgstr "Время создания."
-
-#: .\clients\models.py:59
-msgid "Updated at"
-msgstr "Обновлен"
 
 #: .\clients\models.py:61
 msgid "Last update time."

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-05 15:56+0300\n"
+"POT-Creation-Date: 2026-02-05 16:21+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,6 +20,39 @@ msgstr ""
 
 #: .\api\apps.py:8
 msgid "API"
+msgstr ""
+
+#: .\clients\admin.py:33
+msgid "Credentials"
+msgstr ""
+
+#: .\clients\admin.py:43
+msgid "Speed limits"
+msgstr ""
+
+#: .\clients\admin.py:52
+msgid "Traffic"
+msgstr ""
+
+#: .\clients\admin.py:61
+msgid "Access"
+msgstr ""
+
+#: .\clients\admin.py:67
+msgid "Timestamps"
+msgstr ""
+
+#: .\clients\admin.py:77 .\clients\models.py:54
+msgid "Created at"
+msgstr ""
+
+#: .\clients\admin.py:81 .\clients\models.py:59
+msgid "Updated at"
+msgstr ""
+
+#: .\clients\admin.py:85 .\clients\models.py:43
+#: .\templates\clients\clients.html:91
+msgid "Expires at"
 msgstr ""
 
 #: .\clients\apps.py:7 .\clients\models.py:66
@@ -73,10 +106,6 @@ msgstr ""
 msgid "Total traffic used by the client."
 msgstr ""
 
-#: .\clients\models.py:43 .\templates\clients\clients.html:91
-msgid "Expires at"
-msgstr ""
-
 #: .\clients\models.py:46
 msgid "Leave empty for no expiration."
 msgstr ""
@@ -89,16 +118,8 @@ msgstr ""
 msgid "Inactive clients cannot connect."
 msgstr ""
 
-#: .\clients\models.py:54
-msgid "Created at"
-msgstr ""
-
 #: .\clients\models.py:56
 msgid "Creation time."
-msgstr ""
-
-#: .\clients\models.py:59
-msgid "Updated at"
 msgstr ""
 
 #: .\clients\models.py:61
