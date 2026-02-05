@@ -1,8 +1,8 @@
-from django.utils import timezone
 import logging
 
+from django.utils import timezone
 from rest_framework import status
-from rest_framework.permissions import AllowAny, IsAdminUser, IsAuthenticated
+from rest_framework.permissions import IsAdminUser, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet
@@ -47,28 +47,22 @@ class ServerControlView(APIView):
 
 class HysteriaAuthView(APIView):
     def post(self, request):
-        logger.info("Hysteria auth request data: %s", request.data)
         auth_value = request.data.get("auth")
-        if not auth_value:
-            return Response(
-                {"ok": False, "error": "missing_auth"},
-                status=status.HTTP_400_BAD_REQUEST,
-            )
+        if not auth_value or ":" not in auth_value:
+            return Response(status=status.HTTP_400_BAD_REQUEST)
 
+        username, password = auth_value.split(":", 1)
         client = Client.objects.filter(
-            password=auth_value,
+            username=username,
+            password=password,
             is_active=True,
         ).first()
         if not client:
-            return Response(
-                {"ok": False, "error": "invalid_auth"},
-                status=status.HTTP_401_UNAUTHORIZED,
-            )
-
+            return Response(status=status.HTTP_401_UNAUTHORIZED)
         if client.expires_at and client.expires_at < timezone.now():
-            return Response(
-                {"ok": False, "error": "expired"},
-                status=status.HTTP_403_FORBIDDEN,
-            )
+            return Response(status=status.HTTP_403_FORBIDDEN)
 
-        return Response({"ok": True, "id": client.username})
+        return Response(
+            {"ok": True, "id": client.username},
+            status=status.HTTP_200_OK,
+        )
