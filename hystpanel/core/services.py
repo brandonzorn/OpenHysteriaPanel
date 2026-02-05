@@ -7,7 +7,10 @@ import psutil
 def get_system_stats():
     net_io = psutil.net_io_counters()
     ram = psutil.virtual_memory()
-    system_drive = os.getenv("SystemDrive", "C:") + "\\"
+    if os.name == "nt":
+        system_drive = os.getenv("SystemDrive", "C:") + "\\"
+    else:
+        system_drive = "/"
     disk = psutil.disk_usage(system_drive)
     swap = psutil.swap_memory()
     return {

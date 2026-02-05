@@ -6,7 +6,7 @@ from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet
 
 from clients.models import Client
-from dashboard.services import get_hysteria_status, get_system_stats
+from core.services import get_hysteria_status, get_system_stats
 
 from .serializers import ClientSerializer
 
