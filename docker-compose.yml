@@ -5,8 +5,8 @@ services:
     restart: unless-stopped
     network_mode: "host"
     volumes:
-      - ./acme:/acme
-      - ./hysteria.yaml:/etc/hysteria.yaml
+      - ./hysteria/acme:/acme
+      - ./hysteria/hysteria.yaml:/etc/hysteria.yaml
     command: ["server", "-c", "/etc/hysteria.yaml"]
 
   web-panel:
@@ -16,7 +16,7 @@ services:
     env_file:
       - .env
     volumes:
-      - ./etc:/etc
+      - ./hysteria/etc:/etc
     depends_on:
       - hysteria
 volumes:
