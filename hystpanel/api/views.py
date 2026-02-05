@@ -1,4 +1,6 @@
 from django.utils import timezone
+import logging
+
 from rest_framework import status
 from rest_framework.permissions import IsAdminUser, IsAuthenticated
 from rest_framework.response import Response
@@ -9,6 +11,8 @@ from clients.models import Client
 from core.services import get_hysteria_status, get_system_stats
 
 from .serializers import ClientSerializer
+
+logger = logging.getLogger(__name__)
 
 
 class ClientViewSet(ModelViewSet):
@@ -43,6 +47,7 @@ class ServerControlView(APIView):
 
 class HysteriaAuthView(APIView):
     def post(self, request):
+        logger.info("Hysteria auth request data: %s", request.data)
         auth_value = request.data.get("auth")
         if not auth_value:
             return Response(
