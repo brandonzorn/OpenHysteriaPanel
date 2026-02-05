@@ -46,8 +46,6 @@ class ServerControlView(APIView):
 
 
 class HysteriaAuthView(APIView):
-    permission_classes = [AllowAny]
-
     def post(self, request):
         logger.info("Hysteria auth request data: %s", request.data)
         auth_value = request.data.get("auth")
