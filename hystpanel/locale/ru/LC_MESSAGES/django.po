@@ -1,0 +1,261 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-05 12:43+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: .\hystpanel\settings.py:136
+msgid "English"
+msgstr "English"
+
+#: .\hystpanel\settings.py:137
+msgid "Russian"
+msgstr "Русский"
+
+#: .\templates\400.html:8
+msgid "Bad request"
+msgstr "Неверный запрос"
+
+#: .\templates\400.html:9
+msgid "Check the data and try again."
+msgstr "Проверьте данные и попробуйте снова."
+
+#: .\templates\400.html:10 .\templates\403.html:10 .\templates\404.html:10
+#: .\templates\500.html:10
+msgid "Go to dashboard"
+msgstr "На главную"
+
+#: .\templates\403.html:8
+msgid "Access denied"
+msgstr "Доступ запрещён"
+
+#: .\templates\403.html:9
+msgid "You do not have permission to access this page."
+msgstr "У вас нет прав для доступа к этой странице."
+
+#: .\templates\404.html:8
+msgid "Page not found"
+msgstr "Страница не найдена"
+
+#: .\templates\404.html:9
+msgid "The page was not found. Check the address or return to the dashboard."
+msgstr "Страница не найдена. Проверьте адрес или вернитесь на главную."
+
+#: .\templates\500.html:8
+msgid "Server error"
+msgstr "Ошибка сервера"
+
+#: .\templates\500.html:9
+msgid "Something went wrong. Please try again later."
+msgstr "Что-то пошло не так. Попробуйте ещё раз позже."
+
+#: .\templates\account\login.html:5 .\templates\account\login.html:14
+#: .\templates\account\login.html:43 .\templates\includes\sidebar.html:41
+msgid "Log in"
+msgstr ""
+
+#: .\templates\account\login.html:15
+msgid "Use your username and password to continue."
+msgstr ""
+
+#: .\templates\account\login.html:27 .\templates\clients\clients.html:31
+#: .\templates\clients\clients.html:68
+msgid "Username"
+msgstr ""
+
+#: .\templates\account\login.html:35 .\templates\clients\clients.html:72
+msgid "Password"
+msgstr ""
+
+#: .\templates\account\logout.html:4 .\templates\account\logout.html:8
+#: .\templates\account\logout.html:14 .\templates\includes\sidebar.html:36
+msgid "Log out"
+msgstr ""
+
+#: .\templates\account\logout.html:9
+msgid "Are you sure you want to log out?"
+msgstr ""
+
+#: .\templates\account\logout.html:16 .\templates\clients\clients.html:97
+msgid "Cancel"
+msgstr "Отмена"
+
+#: .\templates\base.html:9
+msgid "Hysteria2 Panel"
+msgstr "Hysteria2 Панель"
+
+#: .\templates\clients\clients.html:10
+msgid "VPN Clients"
+msgstr ""
+
+#: .\templates\clients\clients.html:11
+msgid "Manage user access and bandwidth limits."
+msgstr "Управление доступом и лимитами."
+
+#: .\templates\clients\clients.html:15
+msgid "New Client"
+msgstr "Новый клиент"
+
+#: .\templates\clients\clients.html:21
+msgid "Registered Users"
+msgstr "Зарегистрированные пользователи"
+
+#: .\templates\clients\clients.html:32
+msgid "Traffic Usage"
+msgstr "Использование трафика"
+
+#: .\templates\clients\clients.html:33
+msgid "Speed Limits (Up/Down)"
+msgstr "Лимиты скорости (вверх/вниз)"
+
+#: .\templates\clients\clients.html:34
+msgid "Status"
+msgstr "Статус"
+
+#: .\templates\clients\clients.html:35
+msgid "Actions"
+msgstr "Действия"
+
+#: .\templates\clients\clients.html:41
+msgid "No clients found. Create one to get started."
+msgstr "Клиенты не найдены. Создайте первого."
+
+#: .\templates\clients\clients.html:49
+msgid "Edit"
+msgstr "Редактировать"
+
+#: .\templates\clients\clients.html:50
+msgid "Delete"
+msgstr "Удалить"
+
+#: .\templates\clients\clients.html:51
+msgid "Online"
+msgstr "Онлайн"
+
+#: .\templates\clients\clients.html:52
+msgid "Offline"
+msgstr "Офлайн"
+
+#: .\templates\clients\clients.html:53
+msgid "Toggle status"
+msgstr "Переключить статус"
+
+#: .\templates\clients\clients.html:60
+msgid "Create client"
+msgstr "Создать клиента"
+
+#: .\templates\clients\clients.html:76
+msgid "Upload limit (Mbps)"
+msgstr "Лимит загрузки (Мбит/с)"
+
+#: .\templates\clients\clients.html:80
+msgid "Download limit (Mbps)"
+msgstr "Лимит скачивания (Мбит/с)"
+
+#: .\templates\clients\clients.html:84
+msgid "Traffic limit (GB)"
+msgstr "Лимит трафика (ГБ)"
+
+#: .\templates\clients\clients.html:88
+msgid "Expires at"
+msgstr "Срок действия"
+
+#: .\templates\clients\clients.html:93
+msgid "Active"
+msgstr "Активен"
+
+#: .\templates\clients\clients.html:98
+msgid "Create"
+msgstr "Создать"
+
+#: .\templates\dashboard\dashboard.html:10
+msgid "Dashboard Overview"
+msgstr "Обзор панели"
+
+#: .\templates\dashboard\dashboard.html:11
+msgid "Real-time system and network monitoring."
+msgstr "Мониторинг системы и сети в реальном времени."
+
+#: .\templates\dashboard\dashboard.html:16
+msgid "Checking..."
+msgstr "Проверка..."
+
+#: .\templates\dashboard\dashboard.html:20
+msgid "Restart Server"
+msgstr "Перезапустить сервер"
+
+#: .\templates\dashboard\dashboard.html:30
+msgid "CPU Usage"
+msgstr "Загрузка CPU"
+
+#: .\templates\dashboard\dashboard.html:35
+msgid "Cores"
+msgstr "Ядер"
+
+#: .\templates\dashboard\dashboard.html:37
+msgid "Threads"
+msgstr "Потоков"
+
+#: .\templates\dashboard\dashboard.html:49
+msgid "RAM Usage"
+msgstr "Использование RAM"
+
+#: .\templates\dashboard\dashboard.html:64
+msgid "Disk Usage"
+msgstr "Загрузка диска"
+
+#: .\templates\dashboard\dashboard.html:79
+msgid "Swap Usage"
+msgstr "Загрузка файла подкачки"
+
+#: .\templates\dashboard\dashboard.html:96
+msgid "Active Clients"
+msgstr "Активные клиенты"
+
+#: .\templates\dashboard\dashboard.html:109
+msgid "Server Uptime"
+msgstr "Время работы сервера"
+
+#: .\templates\dashboard\dashboard.html:119
+msgid "Network Traffic History"
+msgstr "История сетевого трафика"
+
+#: .\templates\dashboard\dashboard.html:122
+msgid "In"
+msgstr ""
+
+#: .\templates\dashboard\dashboard.html:123
+msgid "Out"
+msgstr ""
+
+#: .\templates\includes\sidebar.html:13
+msgid "Dashboard"
+msgstr "Панель"
+
+#: .\templates\includes\sidebar.html:17
+msgid "Clients"
+msgstr "Клиенты"
+
+#: .\templates\includes\sidebar.html:21
+msgid "Settings"
+msgstr "Настройки"
+
+#: .\templates\includes\sidebar.html:25
+msgid "Admin"
+msgstr "Админ"

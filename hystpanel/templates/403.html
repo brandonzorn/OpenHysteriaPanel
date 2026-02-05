@@ -1,0 +1,10 @@
+{% extends "layouts/base-error.html" %}
+{% load i18n %}
+
+{% block title %}403 | HysteriaPanel{% endblock %}
+
+{% block accent_class %}bg-red-500/10{% endblock %}
+{% block error_code %}403{% endblock %}
+{% block error_title %}{% trans "Access denied" %}{% endblock %}
+{% block error_message %}{% trans "You do not have permission to access this page." %}{% endblock %}
+{% block action_label %}{% trans "Go to dashboard" %}{% endblock %}
