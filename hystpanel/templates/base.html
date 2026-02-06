@@ -11,21 +11,20 @@
   </title>
 
   <!-- CSS -->
+  {% include "includes/fonts.html" %}
   <style type="text/tailwindcss">
     {% include "includes/tailwind-utilities.css" %}
   </style>
   <style>
     [x-cloak] { display: none !important; }
   </style>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
   {% block css %}{% endblock %}
 
   <!-- JS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <script defer src="{% static 'js/tailwind-config.js' %}"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="{% static 'js/alpine.min.js' %}"></script>
+  <script defer src="{% static 'js/chart.js' %}"></script>
 
   {% block js %}{% endblock %}
   </head>
