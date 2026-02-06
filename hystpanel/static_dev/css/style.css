@@ -1,0 +1,7 @@
+@import "tailwindcss";
+@reference "./dashboard.css";
+@reference "./tailwind-utilities.css";
+
+@theme {
+  --font-sans: Inter, system-ui, sans-serif;
+}

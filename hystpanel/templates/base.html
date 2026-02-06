@@ -13,20 +13,13 @@
 
   <!-- CSS -->
   {% include "includes/fonts.html" %}
-  <style type="text/tailwindcss">
-    {% include "includes/tailwind-utilities.css" %}
-  </style>
-  <style>
-    [x-cloak] { display: none !important; }
-  </style>
+  <link rel="stylesheet" href="{% static 'css/tailwind-compiled.css' %}">
+  <style>[x-cloak]{ display: none !important; }</style>
   {% block css %}{% endblock %}
 
   <!-- JS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script defer src="{% static 'js/tailwind-config.js' %}"></script>
   <script src="{% static 'js/alpine.min.js' %}"></script>
   <script defer src="{% static 'js/chart.js' %}"></script>
-
   {% block js %}{% endblock %}
   </head>
 
