@@ -14,15 +14,18 @@
   <style type="text/tailwindcss">
     {% include "includes/tailwind-utilities.css" %}
   </style>
+  <style>
+    [x-cloak] { display: none !important; }
+  </style>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   {% block css %}{% endblock %}
 
   <!-- JS -->
-  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="{% static 'js/tailwind-config.js' %}"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script defer src="{% static 'js/tailwind-config.js' %}"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   {% block js %}{% endblock %}
   </head>
