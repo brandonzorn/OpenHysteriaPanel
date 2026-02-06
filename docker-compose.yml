@@ -2,32 +2,25 @@ services:
   hysteria:
     image: tobyxdd/hysteria
     container_name: hysteria
+    network_mode: "host"
     restart: unless-stopped
     volumes:
       - ./hysteria/acme:/acme
       - ./hysteria/hysteria.yaml:/etc/hysteria.yaml
-    networks:
-      - panel_net
+    depends_on:
+      - web_panel
     command: ["server", "-c", "/etc/hysteria.yaml"]
 
-  web-panel:
+  web_panel:
     build: .
     container_name: hysteria-web-panel
     restart: unless-stopped
-    ports:
-      - "8888:8888"
+    network_mode: "host"
     env_file:
       - .env
     volumes:
       - ./hysteria/etc-panel/sqlite:/hystpanel/sqlite
       - ./hysteria/etc-panel/static:/hystpanel/static
-    networks:
-      - panel_net
-    depends_on:
-      - hysteria
-
-networks:
-  panel_net:
 
 volumes:
   acme:
