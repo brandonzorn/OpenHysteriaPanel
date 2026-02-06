@@ -19,6 +19,7 @@
   {% block css %}{% endblock %}
 
   <!-- JS -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="{% static 'js/tailwind-config.js' %}"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -32,6 +33,10 @@
       from-gray-900 via-gray-900 to-black
   {% endblock %}">
   {% block body %}{% endblock %}
-  {% include "includes/base-scripts.html" %}
+  <script>
+    function getCsrfToken() {
+        return document.querySelector('[name=csrfmiddlewaretoken]').value;
+    }
+  </script>
   </body>
 </html>
