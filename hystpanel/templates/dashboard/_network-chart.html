@@ -1,21 +1,23 @@
 {% load i18n %}
 
-<div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-6">
-  <h3 class="text-lg font-semibold text-white flex items-center">
-    <svg class="card-stats-header-icon text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"/>
-    </svg>
-    {% trans "Network Traffic History" %}
-  </h3>
-  <div class="text-xs text-gray-400 flex items-center gap-4">
-    <span>
-      <span class="text-indigo-300">{% trans "In" %}</span>:<span id="netInText">0 Mbps</span>
-    </span>
-    <span>
-      <span class="text-blue-300">{% trans "Out" %}</span>: <span id="netOutText">0 Mbps</span>
-    </span>
+<dl class="stats-card">
+  <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-6">
+    {% trans "Network Traffic History" as net_usage %}
+    {% with title=net_usage blur_color="bg-indigo-500" icon_color="text-indigo-400" icon_path="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" %}
+      {% include "dashboard/_card-header.html" %}
+    {% endwith %}
+    <dd>
+      <div class="text-xs text-gray-400 flex flex-wrap items-center gap-x-4 gap-y-2">
+        <span>
+          <span class="text-indigo-300">{% trans "In" %}</span>:<span id="netInText">0 Mbps</span>
+        </span>
+        <span>
+          <span class="text-blue-300">{% trans "Out" %}</span>: <span id="netOutText">0 Mbps</span>
+        </span>
+      </div>
+    </dd>
   </div>
-</div>
-<div class="h-80 w-full">
-  <canvas id="trafficChart"></canvas>
-</div>
+  <div class="h-80 w-full">
+    <canvas id="trafficChart"></canvas>
+  </div>
+</dl>

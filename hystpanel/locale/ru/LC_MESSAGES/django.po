@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-07 21:52+0300\n"
+"POT-Creation-Date: 2026-02-08 00:47+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -357,68 +357,65 @@ msgstr "Действия"
 msgid "No clients found. Create one to get started."
 msgstr "Клиенты не найдены. Создайте первого."
 
-#: .\templates\dashboard\_simple-card.html:3
-#: .\templates\dashboard\dashboard.html:29
-msgid "CPU Usage"
-msgstr "Загрузка CPU"
-
-#: .\templates\dashboard\_simple-card.html:12
-#: .\templates\dashboard\dashboard.html:36
-msgid "Cores"
-msgstr "Ядер"
-
-#: .\templates\dashboard\_simple-card.html:15
-#: .\templates\dashboard\dashboard.html:38
-msgid "Threads"
-msgstr "Потоков"
-
-#: .\templates\dashboard\dashboard.html:10
+#: .\templates\dashboard\_header.html:6
 msgid "Dashboard Overview"
 msgstr "Обзор панели"
 
-#: .\templates\dashboard\dashboard.html:11
+#: .\templates\dashboard\_header.html:9
 msgid "Real-time system and network monitoring."
 msgstr "Мониторинг системы и сети в реальном времени."
 
-#: .\templates\dashboard\dashboard.html:16
+#: .\templates\dashboard\_header.html:16
 msgid "Checking..."
 msgstr "Проверка..."
 
-#: .\templates\dashboard\dashboard.html:22
+#: .\templates\dashboard\_header.html:24
 msgid "Restart Server"
 msgstr "Перезапустить сервер"
 
-#: .\templates\dashboard\dashboard.html:47
-msgid "RAM Usage"
-msgstr "Использование RAM"
-
-#: .\templates\dashboard\dashboard.html:61
-msgid "Disk Usage"
-msgstr "Загрузка диска"
-
-#: .\templates\dashboard\dashboard.html:75
-msgid "Swap Usage"
-msgstr "Загрузка файла подкачки"
-
-#: .\templates\dashboard\dashboard.html:96
-msgid "Active Clients"
-msgstr "Активные клиенты"
-
-#: .\templates\dashboard\dashboard.html:108
-msgid "Server Uptime"
-msgstr "Время работы сервера"
-
-#: .\templates\dashboard\dashboard.html:122
+#: .\templates\dashboard\_network-chart.html:5
 msgid "Network Traffic History"
 msgstr "История сетевого трафика"
 
-#: .\templates\dashboard\dashboard.html:125
+#: .\templates\dashboard\_network-chart.html:12
 msgid "In"
 msgstr "Входящий"
 
-#: .\templates\dashboard\dashboard.html:126
+#: .\templates\dashboard\_network-chart.html:15
 msgid "Out"
 msgstr "Исходящий"
+
+#: .\templates\dashboard\_status-cards.html:4
+msgid "CPU Usage"
+msgstr "Загрузка CPU"
+
+#: .\templates\dashboard\_status-cards.html:11
+msgid "Cores"
+msgstr "Ядер"
+
+#: .\templates\dashboard\_status-cards.html:13
+msgid "Threads"
+msgstr "Потоков"
+
+#: .\templates\dashboard\_status-cards.html:22
+msgid "RAM Usage"
+msgstr "Использование RAM"
+
+#: .\templates\dashboard\_status-cards.html:36
+msgid "Disk Usage"
+msgstr "Загрузка диска"
+
+#: .\templates\dashboard\_status-cards.html:50
+msgid "Swap Usage"
+msgstr "Загрузка файла подкачки"
+
+#: .\templates\dashboard\_status-cards.html:65
+msgid "Active Clients"
+msgstr "Активные клиенты"
+
+#: .\templates\dashboard\_status-cards.html:81
+msgid "Server Uptime"
+msgstr "Время работы сервера"
 
 #: .\templates\includes\sidebar.html:52
 msgid "Admin"

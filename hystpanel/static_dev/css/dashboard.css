@@ -1,11 +1,8 @@
 @utility glass-card {
     @apply bg-gray-800/15 border border-white/10 shadow-xl shadow-black/20 backdrop-blur-sm;
 }
-@utility stats-section {
-    @apply glass-card rounded-2xl p-6;
-}
 @utility stats-card {
-    @apply stats-section relative overflow-hidden;
+    @apply glass-card rounded-2xl p-6 relative overflow-hidden;
 }
 @utility card-blur {
     @apply absolute -right-4 -top-4 w-24 h-24 rounded-full blur-2xl pointer-events-none opacity-10;
@@ -14,7 +11,7 @@
     @apply text-sm font-medium text-gray-400 truncate flex items-center;
 }
 @utility card-stats-header-icon {
-    @apply w-6 h-6 mr-2;
+    @apply w-6 h-6 mr-2 flex-shrink-0;
 }
 @utility card-stats-value {
     @apply text-3xl font-bold text-white;
