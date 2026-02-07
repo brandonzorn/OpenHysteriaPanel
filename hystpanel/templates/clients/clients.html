@@ -5,123 +5,15 @@
 
 {% block content %}
 <div class="space-y-6">
-    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-        <div>
-            <h2 class="text-3xl font-bold text-white">{% trans "VPN Clients" %}</h2>
-            <p class="text-gray-400 mt-1">{% trans "Manage user access and bandwidth limits." %}</p>
-        </div>
-        <button id="newClientButton" class="btn-primary inline-flex items-center px-4 py-2 rounded-xl">
-            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
-            {% trans "New Client" %}
-        </button>
-    </div>
-
-    <div class="glass-card rounded-2xl overflow-hidden">
-        <div class="p-5 border-b border-white/10 flex justify-between items-center">
-            <h3 class="text-lg font-semibold text-white">{% trans "Registered Users" %}</h3>
-            <button id="refreshClients" class="btn-ghost p-2">
-                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
-            </button>
-        </div>
-
-        <div class="overflow-x-auto">
-            <table class="w-full text-left text-sm">
-                <thead class="bg-gray-900/50 text-gray-400 uppercase text-xs font-semibold tracking-wider">
-                    <tr>
-                        <th class="px-6 py-4">{% trans "Username" %}</th>
-                        <th class="px-6 py-4 whitespace-nowrap">{% trans "Traffic Usage" %}</th>
-                        <th class="px-6 py-4 whitespace-nowrap">{% trans "Speed Limits (Up/Down)" %}</th>
-                        <th class="px-6 py-4">{% trans "Status" %}</th>
-                        <th class="px-6 py-4 text-right">{% trans "Actions" %}</th>
-                    </tr>
-                </thead>
-                <tbody id="clientsBody" class="divide-y divide-white/5 text-gray-300"></tbody>
-                <tbody>
-                    <tr id="clientsEmptyRow" class="hidden">
-                        <td colspan="5" class="px-6 py-8 text-center text-gray-500">{% trans "No clients found. Create one to get started." %}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
-<div id="clientI18n" class="hidden"
-     data-edit-label="{% trans "Edit" %}"
-     data-delete-label="{% trans "Delete" %}"
-     data-active-label="{% trans "Online" %}"
-     data-disabled-label="{% trans "Offline" %}"
-     data-toggle-label="{% trans "Toggle status" %}"></div>
-<div id="clientModal" class="fixed inset-0 z-50 opacity-0 pointer-events-none transition-opacity duration-200">
-    <div class="absolute inset-0 bg-black/60"></div>
-    <div class="relative z-10 min-h-screen flex items-center justify-center px-6">
-        <div id="clientModalPanel" class="w-full max-w-xl rounded-2xl p-6 relative overflow-hidden transform transition-all duration-200 translate-y-4 scale-95 bg-gray-900 border border-white/10 shadow-xl shadow-black/30">
-            <div class="absolute -right-8 -top-8 w-32 h-32 bg-indigo-500/10 rounded-full blur-2xl pointer-events-none"></div>
-            <div class="flex items-center justify-between mb-4">
-                <h3 class="text-lg font-semibold text-white">{% trans "Create client" %}</h3>
-            <button id="clientModalClose" class="btn-ghost p-2" type="button">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-            </button>
-            </div>
-
-            <form id="clientForm" class="grid grid-cols-1 md:grid-cols-2 gap-5 mt-2">
-                <div class="md:col-span-2">
-                    <span class="label-text">{% trans "Username" %}</span>
-                    <input id="clientUsername" name="username" type="text" required minlength="4" pattern="[A-Za-z0-9]+" aria-label="Username" class="input-field" />
-                </div>
-                <div class="md:col-span-2">
-                    <span class="label-text">{% trans "Password" %}</span>
-                    <div class="flex gap-2">
-                        <input id="clientPassword" name="password" type="text" required minlength="8" pattern="[A-Za-z0-9]+" aria-label="Password" class="input-field" />
-                        <button id="generatePasswordButton" type="button" class="btn-ghost px-4">{% trans "Generate" %}</button>
-                    </div>
-                </div>
-                <div>
-                    <span class="label-text">{% trans "Upload limit (Mbps)" %}</span>
-                    <input id="clientUpload" name="upload_limit_mbps" type="number" min="0" placeholder="0" aria-label="Upload limit (Mbps)" class="input-field" />
-                </div>
-                <div>
-                    <span class="label-text">{% trans "Download limit (Mbps)" %}</span>
-                    <input id="clientDownload" name="download_limit_mbps" type="number" min="0" placeholder="0" aria-label="Download limit (Mbps)" class="input-field" />
-                </div>
-                <div>
-                    <span class="label-text">{% trans "Traffic limit (GB)" %}</span>
-                    <input id="clientTraffic" name="traffic_limit_gb" type="number" min="0" placeholder="0" aria-label="Traffic limit (GB)" class="input-field" />
-                </div>
-                <div>
-                    <span class="label-text">{% trans "Expires at" %}</span>
-                    <input id="clientExpires" name="expires_at" type="date" aria-label="Expires at" class="input-field" />
-                </div>
-                <div class="md:col-span-2 flex items-center gap-3 bg-gray-900/40 border border-white/10 rounded-lg px-3 py-2">
-                    <input id="clientActive" name="is_active" type="checkbox" checked class="h-4 w-4 accent-indigo-500" aria-label="Active" />
-                    <span class="text-sm text-gray-300">{% trans "Active" %}</span>
-                </div>
-                <div id="clientFormError" class="md:col-span-2 text-sm text-red-400 hidden bg-red-500/10 border border-red-500/20 rounded-lg px-3 py-2"></div>
-                <div class="md:col-span-2 flex items-center justify-end gap-3 pt-2">
-                    <button id="clientCancel" type="button" class="btn-ghost px-4 py-2">{% trans "Cancel" %}</button>
-                    <button id="clientSubmit" type="submit" class="btn-primary px-5 py-2">{% trans "Create" %}</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-<div id="deleteModal" class="fixed inset-0 z-50 opacity-0 pointer-events-none transition-opacity duration-200">
-    <div class="absolute inset-0 bg-black/60"></div>
-    <div class="relative z-10 min-h-screen flex items-center justify-center px-6">
-        <div id="deleteModalPanel" class="w-full max-w-md rounded-2xl p-6 relative overflow-hidden transform transition-all duration-200 translate-y-4 scale-95 bg-gray-900 border border-white/10 shadow-xl shadow-black/30">
-            <div class="absolute -right-8 -top-8 w-28 h-28 bg-red-500/10 rounded-full blur-2xl pointer-events-none"></div>
-            <div class="flex items-center justify-between mb-3">
-                <h3 class="text-lg font-semibold text-white">{% trans "Delete client" %}</h3>
-                <button id="deleteModalClose" class="btn-ghost p-2" type="button">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-                </button>
-            </div>
-            <p class="text-sm text-gray-400">{% trans "Are you sure you want to delete this client?" %}</p>
-            <div class="mt-6 flex items-center justify-end gap-3">
-                <button id="deleteModalCancel" type="button" class="btn-ghost px-4 py-2">{% trans "Cancel" %}</button>
-                <button id="deleteModalConfirm" type="button" class="btn-primary bg-red-500 hover:bg-red-600 px-5 py-2">{% trans "Delete" %}</button>
-            </div>
-        </div>
-    </div>
+  {% include 'clients/_header.html' %}
+  <div class="glass-card rounded-2xl overflow-hidden">
+    {% include 'clients/_table.html' %}
+  </div>
+  <div>
+    {% include 'clients/_create-modal.html' %}
+    {% include 'clients/_delete-modal.html' %}
+    {% include 'clients/_I18n.html' %}
+  </div>
 </div>
 {% endblock %}
 

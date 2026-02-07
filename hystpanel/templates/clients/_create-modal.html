@@ -1,0 +1,57 @@
+{% load i18n %}
+
+<div id="clientModal" class="fixed inset-0 z-50 opacity-0 pointer-events-none transition-opacity duration-200">
+  <div class="absolute inset-0 bg-black/60"></div>
+  <div class="relative z-10 min-h-screen flex items-center justify-center px-6">
+    <div id="clientModalPanel" class="w-full max-w-xl rounded-2xl p-6 relative overflow-hidden transform transition-all duration-200 translate-y-4 scale-95 bg-gray-900 border border-white/10 shadow-xl shadow-black/30">
+      <div class="absolute -right-8 -top-8 w-32 h-32 bg-indigo-500/10 rounded-full blur-2xl pointer-events-none"></div>
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-lg font-semibold text-white">{% trans "Create client" %}</h3>
+        <button id="clientModalClose" class="btn-ghost p-2" type="button">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <form id="clientForm" class="grid grid-cols-1 md:grid-cols-2 gap-5 mt-2">
+        <div class="md:col-span-2">
+          <span class="label-text">{% trans "Username" %}</span>
+          <input id="clientUsername" name="username" type="text" required minlength="4" pattern="[A-Za-z0-9]+" aria-label="Username" class="input-field" />
+        </div>
+        <div class="md:col-span-2">
+          <span class="label-text">{% trans "Password" %}</span>
+          <div class="flex gap-2">
+            <input id="clientPassword" name="password" type="text" required minlength="8" pattern="[A-Za-z0-9]+" aria-label="Password" class="input-field" />
+            <button id="generatePasswordButton" type="button" class="btn-ghost px-4">{% trans "Generate" %}</button>
+          </div>
+        </div>
+        <div>
+          <span class="label-text">{% trans "Upload limit (Mbps)" %}</span>
+          <input id="clientUpload" name="upload_limit_mbps" type="number" min="0" placeholder="0" aria-label="Upload limit (Mbps)" class="input-field" />
+        </div>
+        <div>
+          <span class="label-text">{% trans "Download limit (Mbps)" %}</span>
+          <input id="clientDownload" name="download_limit_mbps" type="number" min="0" placeholder="0" aria-label="Download limit (Mbps)" class="input-field" />
+        </div>
+        <div>
+          <span class="label-text">{% trans "Traffic limit (GB)" %}</span>
+          <input id="clientTraffic" name="traffic_limit_gb" type="number" min="0" placeholder="0" aria-label="Traffic limit (GB)" class="input-field" />
+        </div>
+        <div>
+          <span class="label-text">{% trans "Expires at" %}</span>
+          <input id="clientExpires" name="expires_at" type="date" aria-label="Expires at" class="input-field" />
+        </div>
+        <div class="md:col-span-2 flex items-center gap-3 bg-gray-900/40 border border-white/10 rounded-lg px-3 py-2">
+          <input id="clientActive" name="is_active" type="checkbox" checked class="h-4 w-4 accent-indigo-500" aria-label="Active" />
+          <span class="text-sm text-gray-300">{% trans "Active" %}</span>
+        </div>
+        <div id="clientFormError" class="md:col-span-2 text-sm text-red-400 hidden bg-red-500/10 border border-red-500/20 rounded-lg px-3 py-2"></div>
+        <div class="md:col-span-2 flex items-center justify-end gap-3 pt-2">
+          <button id="clientCancel" type="button" class="btn-ghost px-4 py-2">{% trans "Cancel" %}</button>
+          <button id="clientSubmit" type="submit" class="btn-primary px-5 py-2">{% trans "Create" %}</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+{% load i18n %}
+
+<div class="p-5 border-b border-white/10 flex justify-between items-center">
+  <h3 class="text-lg font-semibold text-white">{% trans "Registered Users" %}</h3>
+  <button id="refreshClients" class="btn-ghost p-2">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+    </svg>
+  </button>
+</div>
+
+<div class="overflow-x-auto">
+  <table class="w-full text-left text-sm">
+    <thead class="bg-gray-900/50 text-gray-400 uppercase text-xs font-semibold tracking-wider">
+    <tr>
+      <th class="px-6 py-4">{% trans "Username" %}</th>
+      <th class="px-6 py-4 whitespace-nowrap">{% trans "Traffic Usage" %}</th>
+      <th class="px-6 py-4 whitespace-nowrap">{% trans "Speed Limits (Up/Down)" %}</th>
+      <th class="px-6 py-4">{% trans "Status" %}</th>
+      <th class="px-6 py-4 text-right">{% trans "Actions" %}</th>
+    </tr>
+    </thead>
+    <tbody id="clientsBody" class="divide-y divide-white/5 text-gray-300"></tbody>
+    <tbody>
+    <tr id="clientsEmptyRow" class="hidden">
+      <td colspan="5" class="px-6 py-8 text-center text-gray-500">
+        {% trans "No clients found. Create one to get started." %}
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

@@ -8,6 +8,8 @@ from .views import (
     ServerControlView,
 )
 
+app_name = "api"
+
 router = DefaultRouter()
 router.register(r"clients", ClientViewSet, basename="clients")
 
