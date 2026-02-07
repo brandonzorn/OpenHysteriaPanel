@@ -123,8 +123,11 @@
         </div>
     </div>
 </div>
-<script src="{% static 'js/clients/core.js' %}"></script>
-<script src="{% static 'js/clients/api.js' %}"></script>
-<script src="{% static 'js/clients/ui.js' %}"></script>
-<script src="{% static 'js/clients/clients.js' %}"></script>
+{% endblock %}
+
+{% block js %}
+  <script src="{% static 'js/clients/core.js' %}"></script>
+  <script src="{% static 'js/clients/api.js' %}"></script>
+  <script src="{% static 'js/clients/ui.js' %}"></script>
+  <script src="{% static 'js/clients/clients.js' %}"></script>
 {% endblock %}
