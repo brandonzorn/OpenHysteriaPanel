@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-05 22:51+0300\n"
+"POT-Creation-Date: 2026-02-07 21:52+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -53,17 +53,17 @@ msgid "Updated at"
 msgstr "Обновлен"
 
 #: .\clients\admin.py:87 .\clients\models.py:43
-#: .\templates\clients\clients.html:91
+#: .\templates\clients\_create-modal.html:42
 msgid "Expires at"
 msgstr "Срок действия"
 
 #: .\clients\apps.py:7 .\clients\models.py:66
-#: .\templates\includes\sidebar.html:17
+#: .\templates\includes\sidebar.html:39
 msgid "Clients"
 msgstr "Клиенты"
 
-#: .\clients\models.py:10 .\templates\clients\clients.html:31
-#: .\templates\clients\clients.html:68
+#: .\clients\models.py:10 .\templates\clients\_create-modal.html:19
+#: .\templates\clients\_table.html:16
 msgid "Username"
 msgstr "Имя пользователя"
 
@@ -71,11 +71,11 @@ msgstr "Имя пользователя"
 msgid "Letters and digits only."
 msgstr "Только буквы и цифры."
 
-#: .\clients\models.py:17 .\templates\clients\clients.html:72
+#: .\clients\models.py:17 .\templates\clients\_create-modal.html:23
 msgid "Password"
 msgstr "Пароль"
 
-#: .\clients\models.py:23 .\templates\clients\clients.html:79
+#: .\clients\models.py:23 .\templates\clients\_create-modal.html:30
 msgid "Upload limit (Mbps)"
 msgstr "Лимит загрузки (Мбит/с)"
 
@@ -83,7 +83,7 @@ msgstr "Лимит загрузки (Мбит/с)"
 msgid "0 means unlimited upload speed."
 msgstr "0 означает безлимитную скорость загрузки."
 
-#: .\clients\models.py:28 .\templates\clients\clients.html:83
+#: .\clients\models.py:28 .\templates\clients\_create-modal.html:34
 msgid "Download limit (Mbps)"
 msgstr "Лимит скачивания (Мбит/с)"
 
@@ -91,7 +91,7 @@ msgstr "Лимит скачивания (Мбит/с)"
 msgid "0 means unlimited download speed."
 msgstr "0 означает безлимитную скорость скачивания."
 
-#: .\clients\models.py:33 .\templates\clients\clients.html:87
+#: .\clients\models.py:33 .\templates\clients\_create-modal.html:38
 msgid "Traffic limit (GB)"
 msgstr "Лимит трафика (ГБ)"
 
@@ -111,7 +111,7 @@ msgstr "Общий расход трафика клиента."
 msgid "Leave empty for no expiration."
 msgstr "Оставьте пустым для бессрочного доступа."
 
-#: .\clients\models.py:49 .\templates\clients\clients.html:96
+#: .\clients\models.py:49 .\templates\clients\_create-modal.html:47
 msgid "Active"
 msgstr "Активен"
 
@@ -149,7 +149,7 @@ msgstr ""
 msgid "Port must be between %(min)s and %(max)s."
 msgstr ""
 
-#: .\dashboard\apps.py:8 .\templates\includes\sidebar.html:13
+#: .\dashboard\apps.py:8 .\templates\includes\sidebar.html:33
 msgid "Dashboard"
 msgstr "Панель"
 
@@ -161,7 +161,7 @@ msgstr "English"
 msgid "Russian"
 msgstr "Русский"
 
-#: .\settings\apps.py:7 .\templates\includes\sidebar.html:21
+#: .\settings\apps.py:7 .\templates\includes\sidebar.html:46
 #: .\templates\settings\settings.html:7
 msgid "Settings"
 msgstr "Настройки"
@@ -239,7 +239,7 @@ msgid "An internal server error occurred. Please try again later."
 msgstr "Что-то пошло не так. Попробуйте ещё раз позже."
 
 #: .\templates\account\login.html:4 .\templates\account\login.html:16
-#: .\templates\account\login.html:51 .\templates\includes\sidebar.html:41
+#: .\templates\account\login.html:51 .\templates\includes\sidebar.html:70
 msgid "Log in"
 msgstr "Войти"
 
@@ -248,7 +248,7 @@ msgid "Use your username and password to continue."
 msgstr "Введите логин и пароль для входа."
 
 #: .\templates\account\logout.html:4 .\templates\account\logout.html:9
-#: .\templates\account\logout.html:20 .\templates\includes\sidebar.html:36
+#: .\templates\account\logout.html:20 .\templates\includes\sidebar.html:63
 msgid "Log out"
 msgstr "Выйти"
 
@@ -256,8 +256,8 @@ msgstr "Выйти"
 msgid "Are you sure you want to log out?"
 msgstr "Вы уверены, что хотите выйти?"
 
-#: .\templates\account\logout.html:23 .\templates\clients\clients.html:100
-#: .\templates\clients\clients.html:120
+#: .\templates\account\logout.html:23 .\templates\clients\_create-modal.html:51
+#: .\templates\clients\_delete-modal.html:23
 msgid "Cancel"
 msgstr "Отмена"
 
@@ -273,85 +273,104 @@ msgstr ""
 msgid "Go to dashboard"
 msgstr "На главную"
 
-#: .\templates\base.html:10
+#: .\templates\base.html:11
 msgid "Hysteria2 Panel"
 msgstr "Hysteria2 Панель"
 
-#: .\templates\clients\clients.html:10
-msgid "VPN Clients"
-msgstr "Клиенты VPN"
+#: .\templates\clients\_I18n.html:6
+msgid "Update"
+msgstr "Изменить"
 
-#: .\templates\clients\clients.html:11
-msgid "Manage user access and bandwidth limits."
-msgstr "Управление доступом и лимитами."
-
-#: .\templates\clients\clients.html:15
-msgid "New Client"
-msgstr "Новый клиент"
-
-#: .\templates\clients\clients.html:21
-msgid "Registered Users"
-msgstr "Зарегистрированные пользователи"
-
-#: .\templates\clients\clients.html:32
-msgid "Traffic Usage"
-msgstr "Использование трафика"
-
-#: .\templates\clients\clients.html:33
-msgid "Speed Limits (Up/Down)"
-msgstr "Лимиты скорости (Загрузка/Скачивание)"
-
-#: .\templates\clients\clients.html:34
-msgid "Status"
-msgstr "Статус"
-
-#: .\templates\clients\clients.html:35
-msgid "Actions"
-msgstr "Действия"
-
-#: .\templates\clients\clients.html:41
-msgid "No clients found. Create one to get started."
-msgstr "Клиенты не найдены. Создайте первого."
-
-#: .\templates\clients\clients.html:49
-msgid "Edit"
-msgstr "Редактировать"
-
-#: .\templates\clients\clients.html:50 .\templates\clients\clients.html:121
-msgid "Delete"
-msgstr "Удалить"
-
-#: .\templates\clients\clients.html:51
-msgid "Online"
-msgstr "Онлайн"
-
-#: .\templates\clients\clients.html:52
-msgid "Offline"
-msgstr "Офлайн"
-
-#: .\templates\clients\clients.html:53
-msgid "Toggle status"
-msgstr "Переключить статус"
-
-#: .\templates\clients\clients.html:60
-msgid "Create client"
-msgstr "Создать клиента"
-
-#: .\templates\clients\clients.html:75
-msgid "Generate"
-msgstr "Сгенерировать"
-
-#: .\templates\clients\clients.html:101
+#: .\templates\clients\_I18n.html:7 .\templates\clients\_create-modal.html:52
 msgid "Create"
 msgstr "Создать"
 
-#: .\templates\clients\clients.html:113
+#: .\templates\clients\_I18n.html:8
+msgid "Edit"
+msgstr "Редактировать"
+
+#: .\templates\clients\_I18n.html:9 .\templates\clients\_delete-modal.html:26
+msgid "Delete"
+msgstr "Удалить"
+
+#: .\templates\clients\_I18n.html:10
+msgid "Online"
+msgstr "Онлайн"
+
+#: .\templates\clients\_I18n.html:11
+msgid "Offline"
+msgstr "Офлайн"
+
+#: .\templates\clients\_I18n.html:12
+msgid "Toggle status"
+msgstr "Переключить статус"
+
+#: .\templates\clients\_create-modal.html:9
+msgid "Create client"
+msgstr "Создать клиента"
+
+#: .\templates\clients\_create-modal.html:26
+msgid "Generate"
+msgstr "Сгенерировать"
+
+#: .\templates\clients\_delete-modal.html:10
 msgid "Delete client"
 msgstr "Удалить клиента"
 
-#: .\templates\clients\clients.html:118
+#: .\templates\clients\_delete-modal.html:19
 msgid "Are you sure you want to delete this client?"
 msgstr "Вы уверены, что хотите удалить этого клиента?"
+
+#: .\templates\clients\_header.html:5
+msgid "VPN Clients"
+msgstr "Клиенты VPN"
+
+#: .\templates\clients\_header.html:6
+msgid "Manage user access and bandwidth limits."
+msgstr "Управление доступом и лимитами."
+
+#: .\templates\clients\_header.html:12
+msgid "New Client"
+msgstr "Новый клиент"
+
+#: .\templates\clients\_table.html:4
+msgid "Registered Users"
+msgstr "Зарегистрированные пользователи"
+
+#: .\templates\clients\_table.html:17
+msgid "Traffic Usage"
+msgstr "Использование трафика"
+
+#: .\templates\clients\_table.html:18
+msgid "Speed Limits (Up/Down)"
+msgstr "Лимиты скорости (Загрузка/Скачивание)"
+
+#: .\templates\clients\_table.html:19
+msgid "Status"
+msgstr "Статус"
+
+#: .\templates\clients\_table.html:20
+msgid "Actions"
+msgstr "Действия"
+
+#: .\templates\clients\_table.html:27
+msgid "No clients found. Create one to get started."
+msgstr "Клиенты не найдены. Создайте первого."
+
+#: .\templates\dashboard\_simple-card.html:3
+#: .\templates\dashboard\dashboard.html:29
+msgid "CPU Usage"
+msgstr "Загрузка CPU"
+
+#: .\templates\dashboard\_simple-card.html:12
+#: .\templates\dashboard\dashboard.html:36
+msgid "Cores"
+msgstr "Ядер"
+
+#: .\templates\dashboard\_simple-card.html:15
+#: .\templates\dashboard\dashboard.html:38
+msgid "Threads"
+msgstr "Потоков"
 
 #: .\templates\dashboard\dashboard.html:10
 msgid "Dashboard Overview"
@@ -365,31 +384,19 @@ msgstr "Мониторинг системы и сети в реальном вр
 msgid "Checking..."
 msgstr "Проверка..."
 
-#: .\templates\dashboard\dashboard.html:20
+#: .\templates\dashboard\dashboard.html:22
 msgid "Restart Server"
 msgstr "Перезапустить сервер"
 
-#: .\templates\dashboard\dashboard.html:30
-msgid "CPU Usage"
-msgstr "Загрузка CPU"
-
-#: .\templates\dashboard\dashboard.html:35
-msgid "Cores"
-msgstr "Ядер"
-
-#: .\templates\dashboard\dashboard.html:37
-msgid "Threads"
-msgstr "Потоков"
-
-#: .\templates\dashboard\dashboard.html:49
+#: .\templates\dashboard\dashboard.html:47
 msgid "RAM Usage"
 msgstr "Использование RAM"
 
-#: .\templates\dashboard\dashboard.html:64
+#: .\templates\dashboard\dashboard.html:61
 msgid "Disk Usage"
 msgstr "Загрузка диска"
 
-#: .\templates\dashboard\dashboard.html:79
+#: .\templates\dashboard\dashboard.html:75
 msgid "Swap Usage"
 msgstr "Загрузка файла подкачки"
 
@@ -397,23 +404,23 @@ msgstr "Загрузка файла подкачки"
 msgid "Active Clients"
 msgstr "Активные клиенты"
 
-#: .\templates\dashboard\dashboard.html:109
+#: .\templates\dashboard\dashboard.html:108
 msgid "Server Uptime"
 msgstr "Время работы сервера"
 
-#: .\templates\dashboard\dashboard.html:119
+#: .\templates\dashboard\dashboard.html:122
 msgid "Network Traffic History"
 msgstr "История сетевого трафика"
 
-#: .\templates\dashboard\dashboard.html:122
+#: .\templates\dashboard\dashboard.html:125
 msgid "In"
 msgstr "Входящий"
 
-#: .\templates\dashboard\dashboard.html:123
+#: .\templates\dashboard\dashboard.html:126
 msgid "Out"
 msgstr "Исходящий"
 
-#: .\templates\includes\sidebar.html:25
+#: .\templates\includes\sidebar.html:52
 msgid "Admin"
 msgstr "Админ"
 

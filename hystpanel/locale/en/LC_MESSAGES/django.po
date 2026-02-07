@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-05 22:51+0300\n"
+"POT-Creation-Date: 2026-02-07 21:52+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -51,17 +51,17 @@ msgid "Updated at"
 msgstr ""
 
 #: .\clients\admin.py:87 .\clients\models.py:43
-#: .\templates\clients\clients.html:91
+#: .\templates\clients\_create-modal.html:42
 msgid "Expires at"
 msgstr ""
 
 #: .\clients\apps.py:7 .\clients\models.py:66
-#: .\templates\includes\sidebar.html:17
+#: .\templates\includes\sidebar.html:39
 msgid "Clients"
 msgstr ""
 
-#: .\clients\models.py:10 .\templates\clients\clients.html:31
-#: .\templates\clients\clients.html:68
+#: .\clients\models.py:10 .\templates\clients\_create-modal.html:19
+#: .\templates\clients\_table.html:16
 msgid "Username"
 msgstr ""
 
@@ -69,11 +69,11 @@ msgstr ""
 msgid "Letters and digits only."
 msgstr ""
 
-#: .\clients\models.py:17 .\templates\clients\clients.html:72
+#: .\clients\models.py:17 .\templates\clients\_create-modal.html:23
 msgid "Password"
 msgstr ""
 
-#: .\clients\models.py:23 .\templates\clients\clients.html:79
+#: .\clients\models.py:23 .\templates\clients\_create-modal.html:30
 msgid "Upload limit (Mbps)"
 msgstr ""
 
@@ -81,7 +81,7 @@ msgstr ""
 msgid "0 means unlimited upload speed."
 msgstr ""
 
-#: .\clients\models.py:28 .\templates\clients\clients.html:83
+#: .\clients\models.py:28 .\templates\clients\_create-modal.html:34
 msgid "Download limit (Mbps)"
 msgstr ""
 
@@ -89,7 +89,7 @@ msgstr ""
 msgid "0 means unlimited download speed."
 msgstr ""
 
-#: .\clients\models.py:33 .\templates\clients\clients.html:87
+#: .\clients\models.py:33 .\templates\clients\_create-modal.html:38
 msgid "Traffic limit (GB)"
 msgstr ""
 
@@ -109,7 +109,7 @@ msgstr ""
 msgid "Leave empty for no expiration."
 msgstr ""
 
-#: .\clients\models.py:49 .\templates\clients\clients.html:96
+#: .\clients\models.py:49 .\templates\clients\_create-modal.html:47
 msgid "Active"
 msgstr ""
 
@@ -147,7 +147,7 @@ msgstr ""
 msgid "Port must be between %(min)s and %(max)s."
 msgstr ""
 
-#: .\dashboard\apps.py:8 .\templates\includes\sidebar.html:13
+#: .\dashboard\apps.py:8 .\templates\includes\sidebar.html:33
 msgid "Dashboard"
 msgstr ""
 
@@ -159,7 +159,7 @@ msgstr "English"
 msgid "Russian"
 msgstr "Русский"
 
-#: .\settings\apps.py:7 .\templates\includes\sidebar.html:21
+#: .\settings\apps.py:7 .\templates\includes\sidebar.html:46
 #: .\templates\settings\settings.html:7
 msgid "Settings"
 msgstr ""
@@ -237,7 +237,7 @@ msgid "An internal server error occurred. Please try again later."
 msgstr ""
 
 #: .\templates\account\login.html:4 .\templates\account\login.html:16
-#: .\templates\account\login.html:51 .\templates\includes\sidebar.html:41
+#: .\templates\account\login.html:51 .\templates\includes\sidebar.html:70
 msgid "Log in"
 msgstr ""
 
@@ -246,7 +246,7 @@ msgid "Use your username and password to continue."
 msgstr ""
 
 #: .\templates\account\logout.html:4 .\templates\account\logout.html:9
-#: .\templates\account\logout.html:20 .\templates\includes\sidebar.html:36
+#: .\templates\account\logout.html:20 .\templates\includes\sidebar.html:63
 msgid "Log out"
 msgstr ""
 
@@ -254,8 +254,8 @@ msgstr ""
 msgid "Are you sure you want to log out?"
 msgstr ""
 
-#: .\templates\account\logout.html:23 .\templates\clients\clients.html:100
-#: .\templates\clients\clients.html:120
+#: .\templates\account\logout.html:23 .\templates\clients\_create-modal.html:51
+#: .\templates\clients\_delete-modal.html:23
 msgid "Cancel"
 msgstr ""
 
@@ -271,84 +271,103 @@ msgstr ""
 msgid "Go to dashboard"
 msgstr ""
 
-#: .\templates\base.html:10
+#: .\templates\base.html:11
 msgid "Hysteria2 Panel"
 msgstr ""
 
-#: .\templates\clients\clients.html:10
-msgid "VPN Clients"
+#: .\templates\clients\_I18n.html:6
+msgid "Update"
 msgstr ""
 
-#: .\templates\clients\clients.html:11
-msgid "Manage user access and bandwidth limits."
-msgstr ""
-
-#: .\templates\clients\clients.html:15
-msgid "New Client"
-msgstr ""
-
-#: .\templates\clients\clients.html:21
-msgid "Registered Users"
-msgstr ""
-
-#: .\templates\clients\clients.html:32
-msgid "Traffic Usage"
-msgstr ""
-
-#: .\templates\clients\clients.html:33
-msgid "Speed Limits (Up/Down)"
-msgstr ""
-
-#: .\templates\clients\clients.html:34
-msgid "Status"
-msgstr ""
-
-#: .\templates\clients\clients.html:35
-msgid "Actions"
-msgstr ""
-
-#: .\templates\clients\clients.html:41
-msgid "No clients found. Create one to get started."
-msgstr ""
-
-#: .\templates\clients\clients.html:49
-msgid "Edit"
-msgstr ""
-
-#: .\templates\clients\clients.html:50 .\templates\clients\clients.html:121
-msgid "Delete"
-msgstr ""
-
-#: .\templates\clients\clients.html:51
-msgid "Online"
-msgstr ""
-
-#: .\templates\clients\clients.html:52
-msgid "Offline"
-msgstr ""
-
-#: .\templates\clients\clients.html:53
-msgid "Toggle status"
-msgstr ""
-
-#: .\templates\clients\clients.html:60
-msgid "Create client"
-msgstr ""
-
-#: .\templates\clients\clients.html:75
-msgid "Generate"
-msgstr ""
-
-#: .\templates\clients\clients.html:101
+#: .\templates\clients\_I18n.html:7 .\templates\clients\_create-modal.html:52
 msgid "Create"
 msgstr ""
 
-#: .\templates\clients\clients.html:113
+#: .\templates\clients\_I18n.html:8
+msgid "Edit"
+msgstr ""
+
+#: .\templates\clients\_I18n.html:9 .\templates\clients\_delete-modal.html:26
+msgid "Delete"
+msgstr ""
+
+#: .\templates\clients\_I18n.html:10
+msgid "Online"
+msgstr ""
+
+#: .\templates\clients\_I18n.html:11
+msgid "Offline"
+msgstr ""
+
+#: .\templates\clients\_I18n.html:12
+msgid "Toggle status"
+msgstr ""
+
+#: .\templates\clients\_create-modal.html:9
+msgid "Create client"
+msgstr ""
+
+#: .\templates\clients\_create-modal.html:26
+msgid "Generate"
+msgstr ""
+
+#: .\templates\clients\_delete-modal.html:10
 msgid "Delete client"
 msgstr ""
 
-#: .\templates\clients\clients.html:118
+#: .\templates\clients\_delete-modal.html:19
 msgid "Are you sure you want to delete this client?"
+msgstr ""
+
+#: .\templates\clients\_header.html:5
+msgid "VPN Clients"
+msgstr ""
+
+#: .\templates\clients\_header.html:6
+msgid "Manage user access and bandwidth limits."
+msgstr ""
+
+#: .\templates\clients\_header.html:12
+msgid "New Client"
+msgstr ""
+
+#: .\templates\clients\_table.html:4
+msgid "Registered Users"
+msgstr ""
+
+#: .\templates\clients\_table.html:17
+msgid "Traffic Usage"
+msgstr ""
+
+#: .\templates\clients\_table.html:18
+msgid "Speed Limits (Up/Down)"
+msgstr ""
+
+#: .\templates\clients\_table.html:19
+msgid "Status"
+msgstr ""
+
+#: .\templates\clients\_table.html:20
+msgid "Actions"
+msgstr ""
+
+#: .\templates\clients\_table.html:27
+msgid "No clients found. Create one to get started."
+msgstr ""
+
+#: .\templates\dashboard\_simple-card.html:3
+#: .\templates\dashboard\dashboard.html:29
+msgid "CPU Usage"
+msgstr ""
+
+#: .\templates\dashboard\_simple-card.html:12
+#: .\templates\dashboard\dashboard.html:36
+msgid "Cores"
+msgstr ""
+
+#: .\templates\dashboard\_simple-card.html:15
+#: .\templates\dashboard\dashboard.html:38
+msgid "Threads"
 msgstr ""
 
 #: .\templates\dashboard\dashboard.html:10
@@ -363,31 +382,19 @@ msgstr ""
 msgid "Checking..."
 msgstr ""
 
-#: .\templates\dashboard\dashboard.html:20
+#: .\templates\dashboard\dashboard.html:22
 msgid "Restart Server"
 msgstr ""
 
-#: .\templates\dashboard\dashboard.html:30
-msgid "CPU Usage"
-msgstr ""
-
-#: .\templates\dashboard\dashboard.html:35
-msgid "Cores"
-msgstr ""
-
-#: .\templates\dashboard\dashboard.html:37
-msgid "Threads"
-msgstr ""
-
-#: .\templates\dashboard\dashboard.html:49
+#: .\templates\dashboard\dashboard.html:47
 msgid "RAM Usage"
 msgstr ""
 
-#: .\templates\dashboard\dashboard.html:64
+#: .\templates\dashboard\dashboard.html:61
 msgid "Disk Usage"
 msgstr ""
 
-#: .\templates\dashboard\dashboard.html:79
+#: .\templates\dashboard\dashboard.html:75
 msgid "Swap Usage"
 msgstr ""
 
@@ -395,23 +402,23 @@ msgstr ""
 msgid "Active Clients"
 msgstr ""
 
-#: .\templates\dashboard\dashboard.html:109
+#: .\templates\dashboard\dashboard.html:108
 msgid "Server Uptime"
 msgstr ""
 
-#: .\templates\dashboard\dashboard.html:119
+#: .\templates\dashboard\dashboard.html:122
 msgid "Network Traffic History"
 msgstr ""
 
-#: .\templates\dashboard\dashboard.html:122
+#: .\templates\dashboard\dashboard.html:125
 msgid "In"
 msgstr ""
 
-#: .\templates\dashboard\dashboard.html:123
+#: .\templates\dashboard\dashboard.html:126
 msgid "Out"
 msgstr ""
 
-#: .\templates\includes\sidebar.html:25
+#: .\templates\includes\sidebar.html:52
 msgid "Admin"
 msgstr ""
 
