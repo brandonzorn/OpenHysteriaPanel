@@ -46,7 +46,7 @@
                 maintainAspectRatio: false,
                 interaction: { intersect: false, mode: 'index' },
                 plugins: {
-                    legend: { labels: { color: '#9ca3af', font: { family: 'Inter' } } },
+                    legend: { display: false },
                     tooltip: {
                         backgroundColor: 'rgba(17, 24, 39, 0.9)',
                         titleColor: '#fff',
