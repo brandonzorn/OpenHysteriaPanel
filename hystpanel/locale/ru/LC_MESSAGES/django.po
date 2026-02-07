@@ -46,16 +46,16 @@ msgstr "Временные метки"
 
 #: .\clients\admin.py:79 .\clients\models.py:54
 msgid "Created at"
-msgstr "Создан"
+msgstr "Создан в"
 
 #: .\clients\admin.py:83 .\clients\models.py:59 .\settings\models.py:38
 msgid "Updated at"
-msgstr "Обновлен"
+msgstr "Изменен в"
 
 #: .\clients\admin.py:87 .\clients\models.py:43
 #: .\templates\clients\_create-modal.html:42
 msgid "Expires at"
-msgstr "Срок действия"
+msgstr "Истекает в"
 
 #: .\clients\apps.py:7 .\clients\models.py:66
 #: .\templates\includes\sidebar.html:39
