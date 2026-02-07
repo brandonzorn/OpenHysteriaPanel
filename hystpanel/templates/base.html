@@ -1,7 +1,7 @@
 {% load static i18n %}
 
 <!DOCTYPE html>
-<html lang="ru" class="dark">
+<html lang="ru" data-theme="dark">
   <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -20,7 +20,6 @@
   <!-- JS -->
   <script src="{% static 'js/alpine.min.js' %}"></script>
   <script defer src="{% static 'js/chart.js' %}"></script>
-  {% block js %}{% endblock %}
   </head>
 
   <body class="{% block body_class %}
@@ -34,5 +33,6 @@
         return document.querySelector('[name=csrfmiddlewaretoken]').value;
     }
   </script>
+  {% block js %}{% endblock %}
   </body>
 </html>
