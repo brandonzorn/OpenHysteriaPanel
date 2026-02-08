@@ -82,5 +82,7 @@
   {% with title=server_uptime blur_color="bg-yellow-500" icon_color="text-yellow-400" icon_path="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" %}
     {% include "dashboard/_card-header.html" %}
   {% endwith %}
-  <dd id="statUptime" class="mt-2 text-2xl font-bold text-white">0s</dd>
+  <dd class="mt-3">
+    <span id="statUptime" class="card-stats-value">0</span>
+  </dd>
 </dl>

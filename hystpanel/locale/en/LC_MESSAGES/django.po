@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-08 00:47+0300\n"
+"POT-Creation-Date: 2026-02-08 21:16+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -61,7 +61,7 @@ msgid "Clients"
 msgstr ""
 
 #: .\clients\models.py:10 .\templates\clients\_create-modal.html:19
-#: .\templates\clients\_table.html:16
+#: .\templates\clients\_table.html:17
 msgid "Username"
 msgstr ""
 
@@ -335,24 +335,29 @@ msgstr ""
 msgid "Registered Users"
 msgstr ""
 
-#: .\templates\clients\_table.html:17
+#: .\templates\clients\_table.html:18
 msgid "Traffic Usage"
 msgstr ""
 
-#: .\templates\clients\_table.html:18
+#: .\templates\clients\_table.html:19
 msgid "Speed Limits (Up/Down)"
 msgstr ""
 
-#: .\templates\clients\_table.html:19
+#: .\templates\clients\_table.html:20
 msgid "Status"
 msgstr ""
 
-#: .\templates\clients\_table.html:20
+#: .\templates\clients\_table.html:21
 msgid "Actions"
 msgstr ""
 
-#: .\templates\clients\_table.html:27
+#: .\templates\clients\_table.html:30
 msgid "No clients found. Create one to get started."
+msgstr ""
+
+#: .\templates\dashboard\_bar-card.html:2
+#: .\templates\dashboard\_status-cards.html:4
+msgid "CPU Usage"
 msgstr ""
 
 #: .\templates\dashboard\_header.html:6
@@ -381,10 +386,6 @@ msgstr ""
 
 #: .\templates\dashboard\_network-chart.html:15
 msgid "Out"
-msgstr ""
-
-#: .\templates\dashboard\_status-cards.html:4
-msgid "CPU Usage"
 msgstr ""
 
 #: .\templates\dashboard\_status-cards.html:11

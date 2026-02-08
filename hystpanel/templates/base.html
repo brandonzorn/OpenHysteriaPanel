@@ -20,7 +20,7 @@
   <!-- JS -->
   <script src="{% static 'js/js.cookie.min.js' %}"></script>
   <script>
-    function getCsrfToken() {return getCookie('csrftoken');}
+    function getCsrfToken() {return Cookies.get('csrftoken');}
   </script>
   <script src="{% static 'js/alpine.min.js' %}"></script>
   <script defer src="{% static 'js/chart.js' %}"></script>

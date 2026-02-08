@@ -12,21 +12,31 @@
 <div class="overflow-x-auto">
   <table class="w-full text-left text-sm">
     <thead class="bg-gray-900/50 text-gray-400 uppercase text-xs font-semibold tracking-wider">
-    <tr>
-      <th class="px-6 py-4">{% trans "Username" %}</th>
-      <th class="px-6 py-4 whitespace-nowrap">{% trans "Traffic Usage" %}</th>
-      <th class="px-6 py-4 whitespace-nowrap">{% trans "Speed Limits (Up/Down)" %}</th>
-      <th class="px-6 py-4">{% trans "Status" %}</th>
-      <th class="px-6 py-4 text-right">{% trans "Actions" %}</th>
-    </tr>
+      <tr>
+        <th class="px-6 py-4">
+          {% trans "Username" %}
+        </th>
+        <th class="px-6 py-4 whitespace-nowrap">
+          {% trans "Traffic Usage" %}
+        </th>
+        <th class="px-6 py-4 whitespace-nowrap">
+          {% trans "Speed Limits (Up/Down)" %}
+        </th>
+        <th class="px-6 py-4">
+          {% trans "Status" %}
+        </th>
+        <th class="px-6 py-4 text-right">
+          {% trans "Actions" %}
+        </th>
+      </tr>
     </thead>
     <tbody id="clientsBody" class="divide-y divide-white/5 text-gray-300"></tbody>
     <tbody>
-    <tr id="clientsEmptyRow" class="hidden">
-      <td colspan="5" class="px-6 py-8 text-center text-gray-500">
-        {% trans "No clients found. Create one to get started." %}
-      </td>
-    </tr>
+      <tr id="clientsEmptyRow" class="hidden">
+        <td colspan="5" class="px-6 py-8 text-center text-gray-500">
+          {% trans "No clients found. Create one to get started." %}
+        </td>
+      </tr>
     </tbody>
   </table>
 </div>
