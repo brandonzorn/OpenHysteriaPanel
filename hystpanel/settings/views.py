@@ -11,7 +11,7 @@ class SettingsView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     template_name = "settings/settings.html"
     form_class = PanelSettingsForm
     model = PanelSettings
-    success_url = reverse_lazy("panel-settings")
+    success_url = reverse_lazy("settings:panel-settings")
 
     def get_object(self, queryset=None):
         return PanelSettings.get_solo()
