@@ -18,6 +18,10 @@
   {% block css %}{% endblock %}
 
   <!-- JS -->
+  <script src="{% static 'js/js.cookie.min.js' %}"></script>
+  <script>
+    function getCsrfToken() {return getCookie('csrftoken');}
+  </script>
   <script src="{% static 'js/alpine.min.js' %}"></script>
   <script defer src="{% static 'js/chart.js' %}"></script>
   </head>
@@ -28,11 +32,6 @@
       from-gray-900 via-gray-900 to-black
   {% endblock %}">
   {% block body %}{% endblock %}
-  <script>
-    function getCsrfToken() {
-        return document.querySelector('[name=csrfmiddlewaretoken]').value;
-    }
-  </script>
   {% block js %}{% endblock %}
   </body>
 </html>
