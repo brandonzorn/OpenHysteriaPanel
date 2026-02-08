@@ -14,6 +14,7 @@ class PanelSettings(models.Model):
     )
     panel_port = models.PositiveIntegerField(
         _("Panel port"),
+        default=8888,
         validators=[
             MinValueValidator(PORT_MIN),
             MaxValueValidator(PORT_MAX),
@@ -23,6 +24,7 @@ class PanelSettings(models.Model):
     )
     hysteria_port = models.PositiveIntegerField(
         _("Hysteria port"),
+        default=7443,
         validators=[
             MinValueValidator(PORT_MIN),
             MaxValueValidator(PORT_MAX),
@@ -32,6 +34,7 @@ class PanelSettings(models.Model):
     )
     masquerade_url = models.URLField(
         _("Masquerade site"),
+        default="https://www.google.com",
         help_text=_("Site URL used for Hysteria masquerade."),
     )
     updated_at = models.DateTimeField(
