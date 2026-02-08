@@ -1,75 +1,63 @@
 (() => {
     const C = window.Clients;
+    const clientsApiUrl = '/api/clients/';
+
+    async function requestJson(url, options = {}) {
+        const method = (options.method || 'GET').toUpperCase();
+        const headers = new Headers(options.headers || {});
+        if (!headers.has('Accept')) headers.set('Accept', 'application/json');
+        if (!headers.has('X-CSRFToken')) {
+            const token = getCsrfToken();
+            if (token) headers.set('X-CSRFToken', token);
+        }
+
+        const res = await fetch(url, { ...options, method, headers });
+        if (res.status === 204) return null;
+        const contentType = res.headers.get('content-type') || '';
+        const isJson = contentType.includes('application/json');
+        const data = isJson ? await res.json().catch(() => null) : await res.text().catch(() => '');
+        if (!res.ok) {
+            const msg = (data && typeof data === 'object' ? JSON.stringify(data) : String(data || 'Request failed'));
+            throw new Error(msg);
+        }
+        return data;
+    }
 
     async function listClients() {
         C.setLoading(true);
         try {
-            const res = await fetch('/api/clients/');
-            if (!res.ok) throw new Error('Unable to load clients.');
-            return await res.json();
+            return await requestJson(clientsApiUrl);
         } finally {
             C.setLoading(false);
         }
     }
 
     async function getClient(id) {
-        const res = await fetch(`/api/clients/${id}/`);
-        if (!res.ok) return null;
-        return await res.json();
+        return await requestJson(`${clientsApiUrl}${id}/`);
     }
 
     async function createClient(payload) {
-        const res = await fetch('/api/clients/', {
+        return await requestJson(clientsApiUrl, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRFToken': getCsrfToken()
-            },
-            body: JSON.stringify(payload)
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
         });
-        if (!res.ok) {
-            const errorData = await res.json().catch(() => null);
-            const errorText = errorData ? JSON.stringify(errorData) : 'Unable to create client.';
-            throw new Error(errorText);
-        }
-        return await res.json().catch(() => ({}));
     }
 
     async function updateClient(id, payload) {
-        const res = await fetch(`/api/clients/${id}/`, {
+        return await requestJson(`${clientsApiUrl}${id}/`, {
             method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRFToken': getCsrfToken()
-            },
-            body: JSON.stringify(payload)
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
         });
-        if (!res.ok) {
-            const errorData = await res.json().catch(() => null);
-            const errorText = errorData ? JSON.stringify(errorData) : 'Unable to update client.';
-            throw new Error(errorText);
-        }
-        return await res.json().catch(() => ({}));
     }
 
     async function deleteClient(id) {
-        const res = await fetch(`/api/clients/${id}/`, {
-            method: 'DELETE',
-            headers: { 'X-CSRFToken': getCsrfToken() }
-        });
-        if (!res.ok) throw new Error('Unable to delete client.');
+        await requestJson(`${clientsApiUrl}${id}/`, { method: 'DELETE' });
     }
 
     async function updateClientActive(id, isActive) {
-        const res = await fetch(`/api/clients/${id}/`, {
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRFToken': getCsrfToken()
-            },
-            body: JSON.stringify({ is_active: isActive })
-        });
-        if (!res.ok) throw new Error('Unable to update client.');
+        return await updateClient(id, { is_active: isActive });
     }
 
     C.api = {

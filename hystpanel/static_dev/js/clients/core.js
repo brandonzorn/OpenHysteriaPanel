@@ -6,10 +6,12 @@
     };
 
     const elements = {};
+    const $ = (sel, root = document) => root.querySelector(sel);
 
     function cacheElements() {
         elements.body = document.getElementById('clientsBody');
         elements.emptyRow = document.getElementById('clientsEmptyRow');
+        elements.rowTpl = document.getElementById('clientRowTpl');
         elements.refreshButton = document.getElementById('refreshClients');
         elements.newClientButton = document.getElementById('newClientButton');
         elements.i18n = document.getElementById('clientI18n');
@@ -36,28 +38,36 @@
         elements.inputActive = document.getElementById('clientActive');
     }
 
-    function getLabel(key, fallback) {
+    function getLabel(key) {
+        const fallback = '_';
         if (!elements.i18n) return fallback;
         return elements.i18n.dataset[key] || fallback;
     }
 
-    function createElement(tag, className, text) {
-        const el = document.createElement(tag);
-        if (className) el.className = className;
-        if (text !== undefined) el.textContent = text;
-        return el;
+    function setLoading(isLoading) {
+        if (!elements.refreshButton) return;
+        elements.refreshButton.classList.toggle('animate-spin', isLoading);
+        elements.refreshButton.disabled = isLoading;
+    }
+
+    function setFormError(message) {
+        if (!elements.formError) return;
+        elements.formError.textContent = message || '';
+        elements.formError.classList.toggle('hidden', !message);
+    }
+
+    function setModalLabels(isEditing) {
+        if (elements.modalTitle) {
+            elements.modalTitle.textContent = isEditing ? getLabel('editTitle') : getLabel('createTitle');
+        }
+        if (elements.submitButton) {
+            elements.submitButton.textContent = isEditing ? getLabel('editLabel') : getLabel('createLabel');
+        }
     }
 
     function applyStatusStyles(statusBadge, statusDot, statusText, isActive) {
-        const statusClassBase = 'client-status-badge inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium capitalize';
-        const statusClassActive = 'bg-green-500/10 text-green-400 border border-green-500/20';
-        const statusClassInactive = 'bg-red-500/10 text-red-400 border border-red-500/20';
-        statusBadge.className = `${statusClassBase} ${isActive ? statusClassActive : statusClassInactive}`;
-        statusDot.className = `client-status-dot w-1.5 h-1.5 rounded-full mr-1.5 ${isActive ? 'bg-green-400' : 'bg-red-400'}`;
-        statusText.textContent = isActive
-            ? getLabel('activeLabel', 'Active')
-            : getLabel('disabledLabel', 'Disabled');
-        statusText.className = 'client-status-text';
+        statusBadge.classList.toggle('is-active', isActive);
+        statusText.textContent = isActive ? getLabel('activeLabel') : getLabel('disabledLabel');
     }
 
     function applyToggleStyles(track, knob, isActive) {
@@ -67,46 +77,75 @@
 
     function formatInputDate(value) {
         if (!value) return '';
-        const date = new Date(value);
-        if (Number.isNaN(date.getTime())) return '';
-        const pad = (num) => String(num).padStart(2, '0');
-        return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
+        const d = new Date(value);
+        if (Number.isNaN(d.getTime())) return '';
+        const pad = (n) => String(n).padStart(2, '0');
+        return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
     }
 
-    function setLoading(isLoading) {
-        if (!elements.refreshButton) return;
-        elements.refreshButton.classList.toggle('animate-spin', isLoading);
-        elements.refreshButton.disabled = isLoading;
+    function toIsoDateFromInput(dateStr) {
+        if (!dateStr) return null;
+        const d = new Date(`${dateStr}T00:00:00`);
+        if (Number.isNaN(d.getTime())) return null;
+        return d.toISOString();
     }
 
-    function setModalLabels(isEditing) {
-        const title = isEditing
-            ? getLabel('editTitle', 'Edit client')
-            : getLabel('createTitle', 'Create client');
-        const submitLabel = isEditing
-            ? getLabel('updateSubmit', 'Update')
-            : getLabel('createSubmit', 'Create');
-        if (elements.modalTitle) elements.modalTitle.textContent = title;
-        if (elements.submitButton) elements.submitButton.textContent = submitLabel;
+    const modalOpenClass = ['opacity-100'];
+    const modalCloseClass = ['pointer-events-none', 'opacity-0'];
+    const panelOpenClass = ['translate-y-0', 'scale-100'];
+    const panelCloseClass = ['translate-y-4', 'scale-95'];
+
+    function openModal(modalEl, panelEl) {
+        if (!modalEl) return;
+        modalEl.classList.remove(...modalCloseClass);
+        modalEl.classList.add(...modalOpenClass);
+        if (panelEl) {
+            panelEl.classList.remove(...panelCloseClass);
+            panelEl.classList.add(...panelOpenClass);
+        }
     }
 
-    function setFormError(message) {
-        if (!elements.formError) return;
-        elements.formError.textContent = message;
-        elements.formError.classList.toggle('hidden', !message);
+    function closeModal(modalEl, panelEl) {
+        if (!modalEl) return;
+        modalEl.classList.add(...modalCloseClass);
+        modalEl.classList.remove(...modalOpenClass);
+        if (panelEl) {
+            panelEl.classList.add(...panelCloseClass);
+            panelEl.classList.remove(...panelOpenClass);
+        }
+    }
+
+    function generatePassword(length = 12) {
+        const charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        const max = charset.length;
+        let result = "";
+
+        if (window.crypto && window.crypto.getRandomValues) {
+            const values = new Uint32Array(length);
+            window.crypto.getRandomValues(values);
+            for (let i = 0; i < values.length; i += 1) result += charset[values[i] % max];
+            return result;
+        }
+
+        for (let i = 0; i < length; i += 1) result += charset[Math.floor(Math.random() * max)];
+        return result;
     }
 
     window.Clients = {
         state,
         elements,
+        $,
         cacheElements,
         getLabel,
-        createElement,
+        setLoading,
+        setFormError,
+        setModalLabels,
         applyStatusStyles,
         applyToggleStyles,
         formatInputDate,
-        setLoading,
-        setModalLabels,
-        setFormError,
+        toIsoDateFromInput,
+        openModal,
+        closeModal,
+        generatePassword,
     };
 })();

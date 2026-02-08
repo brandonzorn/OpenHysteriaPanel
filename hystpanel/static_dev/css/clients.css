@@ -1,0 +1,21 @@
+@layer components {
+    .client-status-badge {
+        @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium capitalize border;
+    }
+    .client-status-badge.is-active {
+        @apply bg-green-500/10 text-green-400 border-green-500/20;
+    }
+    .client-status-badge:not(.is-active) {
+        @apply bg-red-500/10 text-red-400 border-red-500/20;
+    }
+
+    .client-status-dot {
+        @apply w-1.5 h-1.5 rounded-full mr-1.5;
+    }
+    .client-status-badge.is-active .client-status-dot {
+        @apply bg-green-400;
+    }
+    .client-status-badge:not(.is-active) .client-status-dot {
+        @apply bg-red-400;
+    }
+}

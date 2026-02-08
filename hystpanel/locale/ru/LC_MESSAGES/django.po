@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-08 21:16+0300\n"
+"POT-Creation-Date: 2026-02-08 22:09+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -277,37 +277,35 @@ msgstr "На главную"
 msgid "Hysteria2 Panel"
 msgstr "Hysteria2 Панель"
 
-#: .\templates\clients\_I18n.html:6
-msgid "Update"
+#: .\templates\clients\_I18n.html:6 .\templates\clients\_row.html:48
+#: .\templates\clients\_row.html:49
+msgid "Edit"
 msgstr "Изменить"
 
-#: .\templates\clients\_I18n.html:7 .\templates\clients\_create-modal.html:52
+#: .\templates\clients\_I18n.html:7
+msgid "Edit client"
+msgstr "Изменить клиента"
+
+#: .\templates\clients\_I18n.html:8 .\templates\clients\_create-modal.html:52
 msgid "Create"
 msgstr "Создать"
 
-#: .\templates\clients\_I18n.html:8
-msgid "Edit"
-msgstr "Редактировать"
+#: .\templates\clients\_I18n.html:9 .\templates\clients\_create-modal.html:9
+msgid "Create client"
+msgstr "Создать клиента"
 
-#: .\templates\clients\_I18n.html:9 .\templates\clients\_delete-modal.html:26
+#: .\templates\clients\_I18n.html:10 .\templates\clients\_delete-modal.html:26
+#: .\templates\clients\_row.html:55 .\templates\clients\_row.html:56
 msgid "Delete"
 msgstr "Удалить"
 
-#: .\templates\clients\_I18n.html:10
+#: .\templates\clients\_I18n.html:11
 msgid "Online"
 msgstr "Онлайн"
 
-#: .\templates\clients\_I18n.html:11
+#: .\templates\clients\_I18n.html:12
 msgid "Offline"
 msgstr "Офлайн"
-
-#: .\templates\clients\_I18n.html:12
-msgid "Toggle status"
-msgstr "Переключить статус"
-
-#: .\templates\clients\_create-modal.html:9
-msgid "Create client"
-msgstr "Создать клиента"
 
 #: .\templates\clients\_create-modal.html:26
 msgid "Generate"
@@ -333,27 +331,31 @@ msgstr "Управление доступом и лимитами."
 msgid "New Client"
 msgstr "Новый клиент"
 
+#: .\templates\clients\_row.html:40
+msgid "Toggle status"
+msgstr "Переключить статус"
+
 #: .\templates\clients\_table.html:4
 msgid "Registered Users"
 msgstr "Зарегистрированные пользователи"
 
-#: .\templates\clients\_table.html:18
+#: .\templates\clients\_table.html:20
 msgid "Traffic Usage"
 msgstr "Использование трафика"
 
-#: .\templates\clients\_table.html:19
+#: .\templates\clients\_table.html:23
 msgid "Speed Limits (Up/Down)"
 msgstr "Лимиты скорости (Загрузка/Скачивание)"
 
-#: .\templates\clients\_table.html:20
+#: .\templates\clients\_table.html:26
 msgid "Status"
 msgstr "Статус"
 
-#: .\templates\clients\_table.html:21
+#: .\templates\clients\_table.html:29
 msgid "Actions"
 msgstr "Действия"
 
-#: .\templates\clients\_table.html:30
+#: .\templates\clients\_table.html:37
 msgid "No clients found. Create one to get started."
 msgstr "Клиенты не найдены. Создайте первого."
 

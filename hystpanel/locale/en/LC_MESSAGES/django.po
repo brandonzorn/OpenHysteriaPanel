@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-08 21:16+0300\n"
+"POT-Creation-Date: 2026-02-08 22:07+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -275,36 +275,34 @@ msgstr ""
 msgid "Hysteria2 Panel"
 msgstr ""
 
-#: .\templates\clients\_I18n.html:6
-msgid "Update"
-msgstr ""
-
-#: .\templates\clients\_I18n.html:7 .\templates\clients\_create-modal.html:52
-msgid "Create"
-msgstr ""
-
-#: .\templates\clients\_I18n.html:8
+#: .\templates\clients\_I18n.html:6 .\templates\clients\_row.html:48
+#: .\templates\clients\_row.html:49
 msgid "Edit"
 msgstr ""
 
-#: .\templates\clients\_I18n.html:9 .\templates\clients\_delete-modal.html:26
+#: .\templates\clients\_I18n.html:7
+msgid "Edit client"
+msgstr ""
+
+#: .\templates\clients\_I18n.html:8 .\templates\clients\_create-modal.html:52
+msgid "Create"
+msgstr ""
+
+#: .\templates\clients\_I18n.html:9 .\templates\clients\_create-modal.html:9
+msgid "Create client"
+msgstr ""
+
+#: .\templates\clients\_I18n.html:10 .\templates\clients\_delete-modal.html:26
+#: .\templates\clients\_row.html:55 .\templates\clients\_row.html:56
 msgid "Delete"
 msgstr ""
 
-#: .\templates\clients\_I18n.html:10
+#: .\templates\clients\_I18n.html:11
 msgid "Online"
 msgstr ""
 
-#: .\templates\clients\_I18n.html:11
-msgid "Offline"
-msgstr ""
-
 #: .\templates\clients\_I18n.html:12
-msgid "Toggle status"
-msgstr ""
-
-#: .\templates\clients\_create-modal.html:9
-msgid "Create client"
+msgid "Offline"
 msgstr ""
 
 #: .\templates\clients\_create-modal.html:26
@@ -331,27 +329,31 @@ msgstr ""
 msgid "New Client"
 msgstr ""
 
+#: .\templates\clients\_row.html:40
+msgid "Toggle status"
+msgstr ""
+
 #: .\templates\clients\_table.html:4
 msgid "Registered Users"
 msgstr ""
 
-#: .\templates\clients\_table.html:18
+#: .\templates\clients\_table.html:20
 msgid "Traffic Usage"
 msgstr ""
 
-#: .\templates\clients\_table.html:19
+#: .\templates\clients\_table.html:23
 msgid "Speed Limits (Up/Down)"
 msgstr ""
 
-#: .\templates\clients\_table.html:20
+#: .\templates\clients\_table.html:26
 msgid "Status"
 msgstr ""
 
-#: .\templates\clients\_table.html:21
+#: .\templates\clients\_table.html:29
 msgid "Actions"
 msgstr ""
 
-#: .\templates\clients\_table.html:30
+#: .\templates\clients\_table.html:37
 msgid "No clients found. Create one to get started."
 msgstr ""
 
