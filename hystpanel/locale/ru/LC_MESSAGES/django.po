@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-08 22:09+0300\n"
+"POT-Creation-Date: 2026-02-10 01:26+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,7 +32,7 @@ msgstr "Учетные данные"
 msgid "Speed limits"
 msgstr "Лимиты скорости"
 
-#: .\clients\admin.py:51
+#: .\clients\admin.py:51 .\templates\clients\_table.html:23
 msgid "Traffic"
 msgstr "Трафик"
 
@@ -48,7 +48,7 @@ msgstr "Временные метки"
 msgid "Created at"
 msgstr "Создан в"
 
-#: .\clients\admin.py:83 .\clients\models.py:59 .\settings\models.py:38
+#: .\clients\admin.py:83 .\clients\models.py:59 .\settings\models.py:41
 msgid "Updated at"
 msgstr "Изменен в"
 
@@ -63,7 +63,7 @@ msgid "Clients"
 msgstr "Клиенты"
 
 #: .\clients\models.py:10 .\templates\clients\_create-modal.html:19
-#: .\templates\clients\_table.html:17
+#: .\templates\clients\_table.html:18
 msgid "Username"
 msgstr "Имя пользователя"
 
@@ -161,6 +161,22 @@ msgstr "English"
 msgid "Russian"
 msgstr "Русский"
 
+#: .\settings\admin.py:21
+msgid "Главное"
+msgstr "Сгенерировать"
+
+#: .\settings\admin.py:27
+msgid "Ports"
+msgstr "Порты"
+
+#: .\settings\admin.py:36
+msgid "Masquerade"
+msgstr "Маскировка"
+
+#: .\settings\admin.py:42
+msgid "Metadata"
+msgstr "Метаданные"
+
 #: .\settings\apps.py:7 .\templates\includes\sidebar.html:46
 #: .\templates\settings\settings.html:7
 msgid "Settings"
@@ -178,31 +194,31 @@ msgstr "Основной домен панели."
 msgid "Panel port"
 msgstr "Порт панели"
 
-#: .\settings\models.py:22
+#: .\settings\models.py:23
 msgid "External port where the panel is available."
 msgstr "Внешний порт, на котором доступна панель."
 
-#: .\settings\models.py:25
+#: .\settings\models.py:26
 msgid "Hysteria port"
 msgstr "Порт Hysteria"
 
-#: .\settings\models.py:31
+#: .\settings\models.py:33
 msgid "Port used by the Hysteria server."
 msgstr "Порт, используемый сервером Hysteria."
 
-#: .\settings\models.py:34
+#: .\settings\models.py:36
 msgid "Masquerade site"
 msgstr "Сайт маскировки"
 
-#: .\settings\models.py:35
+#: .\settings\models.py:38
 msgid "Site URL used for Hysteria masquerade."
 msgstr "URL сайта для маскировки Hysteria."
 
-#: .\settings\models.py:43 .\settings\models.py:44 .\settings\models.py:47
+#: .\settings\models.py:46 .\settings\models.py:47 .\settings\models.py:50
 msgid "Panel settings"
 msgstr "Настройки панели"
 
-#: .\settings\models.py:58
+#: .\settings\models.py:61
 msgid "Panel port and Hysteria port must be different."
 msgstr "Порты панели и Hysteria должны отличаться."
 
@@ -277,8 +293,8 @@ msgstr "На главную"
 msgid "Hysteria2 Panel"
 msgstr "Hysteria2 Панель"
 
-#: .\templates\clients\_I18n.html:6 .\templates\clients\_row.html:48
-#: .\templates\clients\_row.html:49
+#: .\templates\clients\_I18n.html:6 .\templates\clients\_row.html:70
+#: .\templates\clients\_row.html:71
 msgid "Edit"
 msgstr "Изменить"
 
@@ -295,7 +311,7 @@ msgid "Create client"
 msgstr "Создать клиента"
 
 #: .\templates\clients\_I18n.html:10 .\templates\clients\_delete-modal.html:26
-#: .\templates\clients\_row.html:55 .\templates\clients\_row.html:56
+#: .\templates\clients\_row.html:82 .\templates\clients\_row.html:83
 msgid "Delete"
 msgstr "Удалить"
 
@@ -306,6 +322,30 @@ msgstr "Онлайн"
 #: .\templates\clients\_I18n.html:12
 msgid "Offline"
 msgstr "Офлайн"
+
+#: .\templates\clients\_config-modal.html:12
+msgid "Client config"
+msgstr "Конфигурация клиента"
+
+#: .\templates\clients\_config-modal.html:14
+msgid "Close"
+msgstr "Закрыть"
+
+#: .\templates\clients\_config-modal.html:22
+msgid "Tap the link to copy it to clipboard."
+msgstr "Нажмите на ссылку, чтобы скопировать ее в буфер обмена."
+
+#: .\templates\clients\_config-modal.html:28
+msgid "Copy config"
+msgstr "Скопировать конфигурацию"
+
+#: .\templates\clients\_config-modal.html:45
+msgid "Copy"
+msgstr "Скопировать"
+
+#: .\templates\clients\_config-modal.html:48
+msgid "Done"
+msgstr "Готово"
 
 #: .\templates\clients\_create-modal.html:26
 msgid "Generate"
@@ -331,31 +371,31 @@ msgstr "Управление доступом и лимитами."
 msgid "New Client"
 msgstr "Новый клиент"
 
-#: .\templates\clients\_row.html:40
+#: .\templates\clients\_row.html:52
 msgid "Toggle status"
 msgstr "Переключить статус"
+
+#: .\templates\clients\_row.html:60 .\templates\clients\_row.html:61
+msgid "Config"
+msgstr "Конфигурация"
 
 #: .\templates\clients\_table.html:4
 msgid "Registered Users"
 msgstr "Зарегистрированные пользователи"
 
-#: .\templates\clients\_table.html:20
-msgid "Traffic Usage"
-msgstr "Использование трафика"
+#: .\templates\clients\_table.html:28
+msgid "Speed Limits"
+msgstr "Лимиты скорости"
 
-#: .\templates\clients\_table.html:23
-msgid "Speed Limits (Up/Down)"
-msgstr "Лимиты скорости (Загрузка/Скачивание)"
-
-#: .\templates\clients\_table.html:26
+#: .\templates\clients\_table.html:33
 msgid "Status"
 msgstr "Статус"
 
-#: .\templates\clients\_table.html:29
+#: .\templates\clients\_table.html:38
 msgid "Actions"
 msgstr "Действия"
 
-#: .\templates\clients\_table.html:37
+#: .\templates\clients\_table.html:47
 msgid "No clients found. Create one to get started."
 msgstr "Клиенты не найдены. Создайте первого."
 

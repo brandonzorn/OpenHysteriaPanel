@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-08 22:07+0300\n"
+"POT-Creation-Date: 2026-02-10 01:26+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,7 +30,7 @@ msgstr ""
 msgid "Speed limits"
 msgstr ""
 
-#: .\clients\admin.py:51
+#: .\clients\admin.py:51 .\templates\clients\_table.html:23
 msgid "Traffic"
 msgstr ""
 
@@ -46,7 +46,7 @@ msgstr ""
 msgid "Created at"
 msgstr ""
 
-#: .\clients\admin.py:83 .\clients\models.py:59 .\settings\models.py:38
+#: .\clients\admin.py:83 .\clients\models.py:59 .\settings\models.py:41
 msgid "Updated at"
 msgstr ""
 
@@ -61,7 +61,7 @@ msgid "Clients"
 msgstr ""
 
 #: .\clients\models.py:10 .\templates\clients\_create-modal.html:19
-#: .\templates\clients\_table.html:17
+#: .\templates\clients\_table.html:18
 msgid "Username"
 msgstr ""
 
@@ -159,6 +159,22 @@ msgstr "English"
 msgid "Russian"
 msgstr "Русский"
 
+#: .\settings\admin.py:21
+msgid "General"
+msgstr ""
+
+#: .\settings\admin.py:27
+msgid "Ports"
+msgstr ""
+
+#: .\settings\admin.py:36
+msgid "Masquerade"
+msgstr ""
+
+#: .\settings\admin.py:42
+msgid "Metadata"
+msgstr ""
+
 #: .\settings\apps.py:7 .\templates\includes\sidebar.html:46
 #: .\templates\settings\settings.html:7
 msgid "Settings"
@@ -176,31 +192,31 @@ msgstr ""
 msgid "Panel port"
 msgstr ""
 
-#: .\settings\models.py:22
+#: .\settings\models.py:23
 msgid "External port where the panel is available."
 msgstr ""
 
-#: .\settings\models.py:25
+#: .\settings\models.py:26
 msgid "Hysteria port"
 msgstr ""
 
-#: .\settings\models.py:31
+#: .\settings\models.py:33
 msgid "Port used by the Hysteria server."
 msgstr ""
 
-#: .\settings\models.py:34
+#: .\settings\models.py:36
 msgid "Masquerade site"
 msgstr ""
 
-#: .\settings\models.py:35
+#: .\settings\models.py:38
 msgid "Site URL used for Hysteria masquerade."
 msgstr ""
 
-#: .\settings\models.py:43 .\settings\models.py:44 .\settings\models.py:47
+#: .\settings\models.py:46 .\settings\models.py:47 .\settings\models.py:50
 msgid "Panel settings"
 msgstr ""
 
-#: .\settings\models.py:58
+#: .\settings\models.py:61
 msgid "Panel port and Hysteria port must be different."
 msgstr ""
 
@@ -275,8 +291,8 @@ msgstr ""
 msgid "Hysteria2 Panel"
 msgstr ""
 
-#: .\templates\clients\_I18n.html:6 .\templates\clients\_row.html:48
-#: .\templates\clients\_row.html:49
+#: .\templates\clients\_I18n.html:6 .\templates\clients\_row.html:70
+#: .\templates\clients\_row.html:71
 msgid "Edit"
 msgstr ""
 
@@ -293,7 +309,7 @@ msgid "Create client"
 msgstr ""
 
 #: .\templates\clients\_I18n.html:10 .\templates\clients\_delete-modal.html:26
-#: .\templates\clients\_row.html:55 .\templates\clients\_row.html:56
+#: .\templates\clients\_row.html:82 .\templates\clients\_row.html:83
 msgid "Delete"
 msgstr ""
 
@@ -303,6 +319,30 @@ msgstr ""
 
 #: .\templates\clients\_I18n.html:12
 msgid "Offline"
+msgstr ""
+
+#: .\templates\clients\_config-modal.html:12
+msgid "Client config"
+msgstr ""
+
+#: .\templates\clients\_config-modal.html:14
+msgid "Close"
+msgstr ""
+
+#: .\templates\clients\_config-modal.html:22
+msgid "Tap the link to copy it to clipboard."
+msgstr ""
+
+#: .\templates\clients\_config-modal.html:28
+msgid "Copy config"
+msgstr ""
+
+#: .\templates\clients\_config-modal.html:45
+msgid "Copy"
+msgstr ""
+
+#: .\templates\clients\_config-modal.html:48
+msgid "Done"
 msgstr ""
 
 #: .\templates\clients\_create-modal.html:26
@@ -329,31 +369,31 @@ msgstr ""
 msgid "New Client"
 msgstr ""
 
-#: .\templates\clients\_row.html:40
+#: .\templates\clients\_row.html:52
 msgid "Toggle status"
+msgstr ""
+
+#: .\templates\clients\_row.html:60 .\templates\clients\_row.html:61
+msgid "Config"
 msgstr ""
 
 #: .\templates\clients\_table.html:4
 msgid "Registered Users"
 msgstr ""
 
-#: .\templates\clients\_table.html:20
-msgid "Traffic Usage"
+#: .\templates\clients\_table.html:28
+msgid "Speed Limits"
 msgstr ""
 
-#: .\templates\clients\_table.html:23
-msgid "Speed Limits (Up/Down)"
-msgstr ""
-
-#: .\templates\clients\_table.html:26
+#: .\templates\clients\_table.html:33
 msgid "Status"
 msgstr ""
 
-#: .\templates\clients\_table.html:29
+#: .\templates\clients\_table.html:38
 msgid "Actions"
 msgstr ""
 
-#: .\templates\clients\_table.html:37
+#: .\templates\clients\_table.html:47
 msgid "No clients found. Create one to get started."
 msgstr ""
 
