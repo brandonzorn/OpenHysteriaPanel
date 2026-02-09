@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "./dashboard.css";
 @import "./clients.css";
+@import "./config-modal.css";
 @import "./tailwind-utilities.css";
 
 @theme {

@@ -1,32 +1,32 @@
 {% load i18n %}
 
 <template id="clientRowTpl">
-  <tr class="hover:bg-white/5 transition-colors">
-    <td class="px-6 py-4 font-medium text-white flex items-center">
+  <tr class="client-row hover:bg-white/5 transition-colors">
+    <td class="client-td client-td-user">
       <div class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center mr-3 text-xs font-bold">
         <span data-avatar-letter></span>
       </div>
       <span data-username></span>
     </td>
 
-    <td class="px-6 py-4">
-      <div class="flex items-center">
+    <td class="client-td">
+      <div class="client-traffic-line whitespace-nowrap" data-traffic-line>
         <span class="font-medium text-white" data-traffic-used></span>
         <span class="mx-1 text-gray-500">/</span>
         <span data-traffic-limit></span>
       </div>
-      <div class="w-24 h-1 bg-gray-700 rounded-full mt-2" data-traffic-bar-wrap>
-        <div class="bg-indigo-500 h-1 rounded-full" data-traffic-bar></div>
+      <div class="client-traffic-bar-wrap" data-traffic-bar-wrap>
+        <div class="client-traffic-bar" data-traffic-bar></div>
       </div>
     </td>
 
-    <td class="px-6 py-4 font-mono text-xs">
+    <td class="client-td client-td-speed">
       <div>↑ <span class="text-indigo-300" data-upload></span> <span>Mbps</span></div>
       <div>↓ <span class="text-blue-300" data-download></span> <span>Mbps</span></div>
     </td>
 
-    <td class="px-6 py-4">
-      <div class="flex items-center">
+    <td class="client-td">
+      <div class="client-status-center">
         <span class="client-status-badge">
           <span class="client-status-dot"></span>
           <span class="client-status-text"></span>
@@ -34,13 +34,25 @@
       </div>
     </td>
 
-    <td class="px-6 py-4 text-right space-x-2">
-      <label class="inline-flex items-center cursor-pointer">
-        <input class="sr-only" type="checkbox" data-action="toggle" />
-        <div class="client-toggle-track w-10 h-5 rounded-full relative transition" aria-label={% trans 'Toggle status' %}>
-          <div class="client-toggle-knob w-4 h-4 bg-white rounded-full absolute top-0.5 left-0.5 transition-transform"></div>
-        </div>
-      </label>
+    <td class="client-td">
+      <div class="client-actions">
+        <button type="button"
+          class="p-1.5 text-gray-400 hover:text-indigo-400 hover:bg-white/5 rounded-lg transition hidden"
+          data-traffic-info-button
+          title=""
+          aria-label=""
+        >
+          <span class="sr-only" data-traffic-info-text></span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M12 20a8 8 0 100-16 8 8 0 000 16z"/>
+          </svg>
+        </button>
+        <label class="inline-flex items-center cursor-pointer">
+          <input class="sr-only" type="checkbox" data-action="toggle" />
+          <div class="client-toggle-track w-10 h-5 rounded-full relative transition" aria-label={% trans 'Toggle status' %}>
+            <div class="client-toggle-knob w-4 h-4 bg-white rounded-full absolute top-0.5 left-0.5 transition-transform"></div>
+          </div>
+        </label>
 
         <button type="button"
           class="p-1.5 text-gray-400 hover:text-indigo-400 hover:bg-white/5 rounded-lg transition"
@@ -64,17 +76,18 @@
           </svg>
         </button>
 
-      <button type="button"
-        class="p-1.5 text-gray-400 hover:text-red-400 hover:bg-white/5 rounded-lg transition"
-        data-action="delete"
-        aria-label="{% trans 'Delete' %}"
-        title="{% trans 'Delete' %}"
-        data-icon="delete"
-      >
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5-3h4m-4 0a1 1 0 00-1 1v1h6V5a1 1 0 00-1-1m-4 0h4"/>
-        </svg>
-      </button>
+        <button type="button"
+          class="p-1.5 text-gray-400 hover:text-red-400 hover:bg-white/5 rounded-lg transition"
+          data-action="delete"
+          aria-label="{% trans 'Delete' %}"
+          title="{% trans 'Delete' %}"
+          data-icon="delete"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5-3h4m-4 0a1 1 0 00-1 1v1h6V5a1 1 0 00-1-1m-4 0h4"/>
+          </svg>
+        </button>
+      </div>
     </td>
   </tr>
 </template>
