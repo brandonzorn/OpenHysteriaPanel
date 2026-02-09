@@ -36,6 +36,15 @@
         elements.inputTraffic = document.getElementById('clientTraffic');
         elements.inputExpires = document.getElementById('clientExpires');
         elements.inputActive = document.getElementById('clientActive');
+        elements.configModal = document.getElementById('configModal');
+        elements.configModalPanel = document.getElementById('configModalPanel');
+        elements.configModalClose = document.getElementById('configModalClose');
+        elements.configModalOk = document.getElementById('configModalOk');
+        elements.configText = document.getElementById('configText');
+        elements.configCopyArea = document.getElementById('configCopyArea');
+        elements.configCopyBtn = document.getElementById('configCopyBtn');
+        elements.configCopyHint = document.getElementById('configCopyHint');
+        elements.configImportLink = document.getElementById('configImportLink');
     }
 
     function getLabel(key) {
@@ -115,6 +124,53 @@
         }
     }
 
+    async function copyToClipboard(value) {
+        const text = String(value ?? '');
+        try {
+            await navigator.clipboard.writeText(text);
+            return true;
+        } catch {
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            ta.style.position = 'fixed';
+            ta.style.left = '-9999px';
+            document.body.appendChild(ta);
+            ta.select();
+            const ok = document.execCommand('copy');
+            document.body.removeChild(ta);
+            return ok;
+        }
+    }
+
+    function setCopyHint(message) {
+        if (!elements.configCopyHint) return;
+        elements.configCopyHint.textContent = message || '';
+    }
+
+    function openConfigModal(hysteriaUrl) {
+        if (!elements.configModal || !elements.configModalPanel) return;
+        if (elements.configText) elements.configText.textContent = hysteriaUrl || '';
+        importLink = `v2raytun://import/${encodeURIComponent(hysteriaUrl || '')}`
+        if (elements.configImportLink) elements.configImportLink.href = importLink || '';
+
+
+        setCopyHint('');
+        openModal(elements.configModal, elements.configModalPanel);
+    }
+
+    function closeConfigModal() {
+        if (!elements.configModal || !elements.configModalPanel) return;
+        closeModal(elements.configModal, elements.configModalPanel);
+        setCopyHint('');
+    }
+
+    async function copyConfigFromModal() {
+        const url = elements.configText?.textContent?.trim() || '';
+        if (!url) return;
+        const ok = await copyToClipboard(url);
+        setCopyHint(ok ? '✓ Copied' : 'Copy failed');
+    }
+
     function generatePassword(length = 12) {
         const charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         const max = charset.length;
@@ -146,6 +202,10 @@
         toIsoDateFromInput,
         openModal,
         closeModal,
+        copyToClipboard,
+        openConfigModal,
+        closeConfigModal,
+        copyConfigFromModal,
         generatePassword,
     };
 })();

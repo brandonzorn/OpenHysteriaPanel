@@ -1,6 +1,39 @@
 (() => {
     const C = window.Clients;
     const api = C.api;
+    const INFINITE_LABEL = '\u221e';
+    let trafficOverflowRaf = null;
+
+    function isOverflowing(el) {
+        return el.scrollWidth - el.clientWidth > 1;
+    }
+
+    function updateTrafficOverflow(row) {
+        const line = row.querySelector('[data-traffic-line]');
+        const infoBtn = row.querySelector('[data-traffic-info-button]');
+        if (!line || !infoBtn) return;
+
+        const wasHidden = line.classList.contains('hidden');
+        if (wasHidden) line.classList.remove('hidden');
+
+        const overflow = isOverflowing(line);
+        line.classList.toggle('hidden', overflow);
+        infoBtn.classList.toggle('hidden', !overflow);
+    }
+
+    function syncTrafficOverflow() {
+        if (!C.elements.body) return;
+        const rows = C.elements.body.querySelectorAll('tr');
+        rows.forEach(updateTrafficOverflow);
+    }
+
+    function queueTrafficOverflowSync() {
+        if (trafficOverflowRaf) return;
+        trafficOverflowRaf = requestAnimationFrame(() => {
+            trafficOverflowRaf = null;
+            syncTrafficOverflow();
+        });
+    }
 
     function renderClients(clients) {
         const body = C.elements.body;
@@ -32,9 +65,19 @@
 
             const used = Number(client.traffic_used_gb ?? 0);
             const limit = Number(client.traffic_limit_gb ?? 0);
+            const limitDisplay = limit > 0 ? `${limit} GB` : INFINITE_LABEL;
+            const trafficText = `${used} / ${limitDisplay}`;
 
             row.querySelector('[data-traffic-used]').textContent = String(used);
-            row.querySelector('[data-traffic-limit]').textContent = limit > 0 ? `${limit} GB` : '∞';
+            row.querySelector('[data-traffic-limit]').textContent = limitDisplay;
+
+            const trafficInfoButton = row.querySelector('[data-traffic-info-button]');
+            const trafficInfoText = row.querySelector('[data-traffic-info-text]');
+            if (trafficInfoButton) {
+                trafficInfoButton.title = trafficText;
+                trafficInfoButton.setAttribute('aria-label', trafficText);
+            }
+            if (trafficInfoText) trafficInfoText.textContent = trafficText;
 
             const barWrap = row.querySelector('[data-traffic-bar-wrap]');
             const bar = row.querySelector('[data-traffic-bar]');
@@ -47,8 +90,8 @@
                 bar.style.width = '0%';
             }
 
-            const up = client.upload_limit_mbps ? String(client.upload_limit_mbps) : '∞';
-            const down = client.download_limit_mbps ? String(client.download_limit_mbps) : '∞';
+            const up = client.upload_limit_mbps ? String(client.upload_limit_mbps) : INFINITE_LABEL;
+            const down = client.download_limit_mbps ? String(client.download_limit_mbps) : INFINITE_LABEL;
             row.querySelector('[data-upload]').textContent = up;
             row.querySelector('[data-download]').textContent = down;
 
@@ -179,14 +222,29 @@
       await api.updateClientActive(clientId, isActive);
       updateRowActiveUi(row, isActive);
     } catch (e) {
-      // rollback
       inputEl.checked = !isActive;
       updateRowActiveUi(row, !isActive);
       alert('Error updating client');
     }
   }
 
-  // ---------- Init ----------
+  function buildHysteriaUrl(client) {
+    const ds = document.body?.dataset || {};
+
+    const host = ds.hysteriaHost || location.hostname;
+    const port = ds.hysteriaPort || '7443';
+    const sni = ds.hysteriaSni || host;
+
+    const username = encodeURIComponent(client.username || '');
+    const password = encodeURIComponent(client.password || '');
+
+    const params = new URLSearchParams();
+    if (sni) params.set('sni', sni);
+    params.set('alpn', 'h3');
+
+    return `hysteria://${username}:${password}@${host}:${port}/?${params.toString()}`;
+  }
+
   function initClients() {
     C.cacheElements();
     if (!C.elements.body) return;
@@ -273,6 +331,24 @@
 
       const action = actionEl.dataset.action;
 
+      if (action === 'config') {
+        const cached = C.state.clientsById.get(String(clientId));
+        if (!cached) return;
+        if (cached.password === undefined) {
+          try {
+            const full = await api.getClient(clientId);
+            if (!full) return;
+            C.openConfigModal(buildHysteriaUrl(full));
+          } catch {
+            alert('Error loading client');
+          }
+          return;
+        }
+
+        C.openConfigModal(buildHysteriaUrl(cached));
+        return;
+      }
+
       if (action === 'delete') {
         openDeleteModal(clientId);
         return;
@@ -306,6 +382,16 @@
       // optimistic UI
       updateRowActiveUi(row, input.checked);
       handleToggleActive(clientId, input.checked, row, input);
+    });
+
+    C.elements.configModalClose?.addEventListener('click', C.closeConfigModal);
+    C.elements.configModalOk?.addEventListener('click', C.closeConfigModal);
+
+    C.elements.configCopyArea?.addEventListener('click', C.copyConfigFromModal);
+    C.elements.configCopyBtn?.addEventListener('click', C.copyConfigFromModal);
+
+    C.elements.configModal?.addEventListener('click', (e) => {
+      if (e.target === C.elements.configModal) C.closeConfigModal();
     });
 
     refreshClients();
