@@ -19,3 +19,68 @@
         @apply bg-red-400;
     }
 }
+@utility client-td {
+    @apply px-6 py-4 align-middle text-center;
+}
+@utility client-row {
+    & > td {
+        @apply client-td;
+    }
+}
+@utility client-base {
+    @apply flex items-center justify-center;
+}
+
+@utility client-td-user {
+    @apply client-base gap-3 font-medium text-white;
+}
+
+@utility client-traffic-line {
+    @apply client-base;
+}
+@utility client-traffic-bar-wrap {
+    @apply w-24 h-1 bg-gray-700 rounded-full mt-2 mx-auto;
+}
+
+@utility client-traffic-bar {
+    @apply h-1 rounded-full bg-indigo-500;
+}
+
+@utility client-td-speed {
+    @apply font-mono text-xs text-center;
+}
+
+@utility client-status-center {
+    @apply flex items-center justify-center;
+}
+
+@utility client-actions {
+    @apply inline-flex items-center justify-center gap-2;
+}
+
+@utility table-thead {
+    @apply client-td uppercase text-xs font-semibold tracking-wider text-gray-400 align-middle;
+}
+@utility table-th {
+    @apply px-6 py-4 align-middle text-center uppercase text-xs font-semibold tracking-wider text-gray-400;
+}
+@utility table-th-content {
+    @apply block truncate min-w-0;
+}
+
+
+@utility config-split {
+  @apply w-full flex items-stretch rounded-xl overflow-hidden
+         border border-white/10 bg-gray-950/40;
+}
+@utility config-split-main {
+  @apply flex-1 px-4 py-3 text-left font-mono text-xs text-gray-200
+         hover:bg-gray-950/60 transition truncate;
+}
+@utility config-split-action {
+  @apply px-4 flex items-center justify-center
+         bg-indigo-500/15 text-indigo-400
+         hover:bg-indigo-500/25 hover:text-indigo-300
+         border-l border-indigo-500/30
+         transition whitespace-nowrap;
+}
