@@ -242,7 +242,7 @@
     if (sni) params.set('sni', sni);
     params.set('alpn', 'h3');
 
-    return `hysteria://${username}:${password}@${host}:${port}/?${params.toString()}`;
+    return `hysteria2://${username}:${password}@${host}:${port}/?${params.toString()}`;
   }
 
   function initClients() {
