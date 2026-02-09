@@ -60,7 +60,7 @@
             const row = tpl.content.firstElementChild.cloneNode(true);
             row.dataset.clientId = id;
 
-            row.querySelector('[data-avatar-letter]').textContent = (client.username?.[0] || '?').toUpperCase();
+            // row.querySelector('[data-avatar-letter]').textContent = (client.username?.[0] || '?').toUpperCase();
             row.querySelector('[data-username]').textContent = client.username || '';
 
             const used = Number(client.traffic_used_gb ?? 0);
@@ -291,6 +291,7 @@
       if (e.key === 'Escape') {
         closeCreateEditModal();
         closeDeleteModal();
+        C.closeConfigModal();
       }
     });
 
