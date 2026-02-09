@@ -235,8 +235,8 @@
     const port = ds.hysteriaPort || '7443';
     const sni = ds.hysteriaSni || host;
 
-    const username = encodeURIComponent(client.username || '');
-    const password = encodeURIComponent(client.password || '');
+    const username = client.username || '';
+    const password = client.password || '';
 
     const params = new URLSearchParams();
     if (sni) params.set('sni', sni);

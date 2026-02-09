@@ -150,9 +150,8 @@
     function openConfigModal(hysteriaUrl) {
         if (!elements.configModal || !elements.configModalPanel) return;
         if (elements.configText) elements.configText.textContent = hysteriaUrl || '';
-        importLink = `v2raytun://import/${encodeURIComponent(hysteriaUrl || '')}`
+        importLink = `v2raytun://import/${hysteriaUrl || ''}`
         if (elements.configImportLink) elements.configImportLink.href = importLink || '';
-
 
         setCopyHint('');
         openModal(elements.configModal, elements.configModalPanel);
