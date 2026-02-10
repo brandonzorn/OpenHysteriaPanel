@@ -6,6 +6,13 @@ from core.validators import alnum_validator
 
 
 class Client(models.Model):
+    title = models.CharField(
+        _("Title"),
+        max_length=64,
+        blank=True,
+        default=_("Config"),
+        help_text=_("Display name for this configuration."),
+    )
     username = models.CharField(
         _("Username"),
         max_length=64,
@@ -39,7 +46,7 @@ class Client(models.Model):
         default=0,
         help_text=_("Total traffic used by the client."),
     )
-    expires_at = models.DateTimeField(
+    expires_at = models.DateField(
         _("Expires at"),
         null=True,
         blank=True,

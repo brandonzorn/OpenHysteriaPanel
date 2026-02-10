@@ -17,7 +17,10 @@ class PanelSettingsForm(WidgetClassMixin, forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        for field_name in ("panel_port", "hysteria_port"):
+        for field_name in (
+            PanelSettings.panel_port.field.name,
+            PanelSettings.hysteria_port.field.name,
+        ):
             field = self.fields.get(field_name)
             if not field:
                 continue
