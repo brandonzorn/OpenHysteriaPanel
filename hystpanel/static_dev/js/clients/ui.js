@@ -238,11 +238,13 @@
     const username = client.username || '';
     const password = client.password || '';
 
+    const title = encodeURIComponent(client.profile_name || username);
+
     const params = new URLSearchParams();
     if (sni) params.set('sni', sni);
     params.set('alpn', 'h3');
 
-    return `hysteria2://${username}:${password}@${host}:${port}/?${params.toString()}`;
+    return `hysteria2://${username}:${password}@${host}:${port}/?${params.toString()}#${title}`;
   }
 
   function initClients() {
