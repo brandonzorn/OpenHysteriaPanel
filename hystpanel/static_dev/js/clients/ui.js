@@ -131,7 +131,6 @@
         C.setFormError('');
 
         if (C.elements.form) C.elements.form.reset();
-        if (C.elements.inputActive) C.elements.inputActive.checked = true;
 
         C.openModal(C.elements.modal, C.elements.modalPanel);
         C.elements.inputUsername?.focus?.();
@@ -150,7 +149,6 @@
     if (C.elements.inputDownload) C.elements.inputDownload.value = client.download_limit_mbps || 0;
     if (C.elements.inputTraffic) C.elements.inputTraffic.value = client.traffic_limit_gb || 0;
     if (C.elements.inputExpires) C.elements.inputExpires.value = C.formatInputDate(client.expires_at);
-    if (C.elements.inputActive) C.elements.inputActive.checked = !!client.is_active;
 
     C.openModal(C.elements.modal, C.elements.modalPanel);
     C.elements.inputUsername?.focus?.();
@@ -159,11 +157,9 @@
   function closeCreateEditModal() {
     C.closeModal(C.elements.modal, C.elements.modalPanel);
     C.state.editingId = null;
-    C.setModalLabels(false);
     C.setFormError('');
 
     if (C.elements.form) C.elements.form.reset();
-    if (C.elements.inputActive) C.elements.inputActive.checked = true;
   }
 
   function openDeleteModal(clientId) {
@@ -238,7 +234,7 @@
     const username = client.username || '';
     const password = client.password || '';
 
-    const title = encodeURIComponent(client.profile_name || username);
+    const title = encodeURIComponent(client.title || username);
 
     const params = new URLSearchParams();
     if (sni) params.set('sni', sni);
@@ -251,26 +247,18 @@
     C.cacheElements();
     if (!C.elements.body) return;
 
-    // labels based on i18n dataset
-    C.setModalLabels(false);
-
-    // Header actions
     C.elements.newClientButton?.addEventListener('click', openCreateModal);
     C.elements.refreshButton?.addEventListener('click', refreshClients);
 
-    // Modal close/cancel
     C.elements.modalClose?.addEventListener('click', closeCreateEditModal);
     C.elements.cancelButton?.addEventListener('click', closeCreateEditModal);
 
-    // Password generator
     C.elements.generatePasswordButton?.addEventListener('click', () => {
       if (!C.elements.inputPassword) return;
       C.elements.inputPassword.value = C.generatePassword();
       C.elements.inputPassword.focus();
       C.elements.inputPassword.select();
     });
-
-    // Delete modal buttons
     C.elements.deleteModalClose?.addEventListener('click', closeDeleteModal);
     C.elements.deleteModalCancel?.addEventListener('click', closeDeleteModal);
     C.elements.deleteModalConfirm?.addEventListener('click', () => {
@@ -287,6 +275,9 @@
     C.elements.deleteModal?.addEventListener('click', (e) => {
       if (e.target === C.elements.deleteModal) closeDeleteModal();
     });
+    C.elements.configModal?.addEventListener('click', (e) => {
+      if (e.target === C.elements.configModal) closeDeleteModal();
+    });
 
     // Escape
     document.addEventListener('keydown', (e) => {
@@ -301,6 +292,7 @@
     C.elements.form?.addEventListener('submit', (e) => {
       e.preventDefault();
 
+      const title = C.elements.inputTitle?.value?.trim() || '';
       const username = C.elements.inputUsername?.value?.trim() || '';
       const password = C.elements.inputPassword?.value?.trim() || '';
 
@@ -310,13 +302,13 @@
       }
 
       const payload = {
+        title,
         username,
         password,
         upload_limit_mbps: Number(C.elements.inputUpload?.value || 0),
         download_limit_mbps: Number(C.elements.inputDownload?.value || 0),
         traffic_limit_gb: Number(C.elements.inputTraffic?.value || 0),
         expires_at: C.toIsoDateFromInput(C.elements.inputExpires?.value || ''),
-        is_active: !!C.elements.inputActive?.checked,
       };
 
       C.setFormError('');

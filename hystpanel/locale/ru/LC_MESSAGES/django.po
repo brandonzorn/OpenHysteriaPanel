@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-10 01:26+0300\n"
+"POT-Creation-Date: 2026-02-11 00:28+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -44,90 +44,101 @@ msgstr "Доступ"
 msgid "Timestamps"
 msgstr "Временные метки"
 
-#: .\clients\admin.py:79 .\clients\models.py:54
+#: .\clients\admin.py:79 .\clients\models.py:61
 msgid "Created at"
 msgstr "Создан в"
 
-#: .\clients\admin.py:83 .\clients\models.py:59 .\settings\models.py:41
+#: .\clients\admin.py:83 .\clients\models.py:66 .\settings\models.py:41
 msgid "Updated at"
 msgstr "Изменен в"
 
-#: .\clients\admin.py:87 .\clients\models.py:43
-#: .\templates\clients\_create-modal.html:42
+#: .\clients\admin.py:87 .\clients\models.py:50
 msgid "Expires at"
 msgstr "Истекает в"
 
-#: .\clients\apps.py:7 .\clients\models.py:66
+#: .\clients\apps.py:7 .\clients\models.py:73
 #: .\templates\includes\sidebar.html:39
 msgid "Clients"
 msgstr "Клиенты"
 
-#: .\clients\models.py:10 .\templates\clients\_create-modal.html:19
-#: .\templates\clients\_table.html:18
+#: .\clients\models.py:10
+msgid "Title"
+msgstr "Название"
+
+#: .\clients\models.py:13 .\templates\clients\_row.html:57
+#: .\templates\clients\_row.html:58
+msgid "Config"
+msgstr "Конфигурация"
+
+#: .\clients\models.py:14
+msgid "Display name for this configuration."
+msgstr "Отображаемое название этой конфигурации."
+
+#: .\clients\models.py:17
 msgid "Username"
 msgstr "Имя пользователя"
 
-#: .\clients\models.py:14 .\clients\models.py:20
+#: .\clients\models.py:21 .\clients\models.py:27
 msgid "Letters and digits only."
 msgstr "Только буквы и цифры."
 
-#: .\clients\models.py:17 .\templates\clients\_create-modal.html:23
+#: .\clients\models.py:24
 msgid "Password"
 msgstr "Пароль"
 
-#: .\clients\models.py:23 .\templates\clients\_create-modal.html:30
+#: .\clients\models.py:30
 msgid "Upload limit (Mbps)"
 msgstr "Лимит загрузки (Мбит/с)"
 
-#: .\clients\models.py:25
+#: .\clients\models.py:32
 msgid "0 means unlimited upload speed."
 msgstr "0 означает безлимитную скорость загрузки."
 
-#: .\clients\models.py:28 .\templates\clients\_create-modal.html:34
+#: .\clients\models.py:35
 msgid "Download limit (Mbps)"
 msgstr "Лимит скачивания (Мбит/с)"
 
-#: .\clients\models.py:30
+#: .\clients\models.py:37
 msgid "0 means unlimited download speed."
 msgstr "0 означает безлимитную скорость скачивания."
 
-#: .\clients\models.py:33 .\templates\clients\_create-modal.html:38
+#: .\clients\models.py:40
 msgid "Traffic limit (GB)"
 msgstr "Лимит трафика (ГБ)"
 
-#: .\clients\models.py:35
+#: .\clients\models.py:42
 msgid "0 means unlimited traffic."
 msgstr "0 означает безлимитный трафик."
 
-#: .\clients\models.py:38
+#: .\clients\models.py:45
 msgid "Traffic used (GB)"
 msgstr "Использовано трафика (ГБ)"
 
-#: .\clients\models.py:40
+#: .\clients\models.py:47
 msgid "Total traffic used by the client."
 msgstr "Общий расход трафика клиента."
 
-#: .\clients\models.py:46
+#: .\clients\models.py:53
 msgid "Leave empty for no expiration."
 msgstr "Оставьте пустым для бессрочного доступа."
 
-#: .\clients\models.py:49 .\templates\clients\_create-modal.html:47
+#: .\clients\models.py:56
 msgid "Active"
 msgstr "Активен"
 
-#: .\clients\models.py:51
+#: .\clients\models.py:58
 msgid "Inactive clients cannot connect."
 msgstr "Неактивные клиенты не могут подключаться."
 
-#: .\clients\models.py:56
+#: .\clients\models.py:63
 msgid "Creation time."
 msgstr "Время создания."
 
-#: .\clients\models.py:61
+#: .\clients\models.py:68
 msgid "Last update time."
 msgstr "Время последнего обновления."
 
-#: .\clients\models.py:65
+#: .\clients\models.py:72
 msgid "Client"
 msgstr "Клиент"
 
@@ -142,12 +153,12 @@ msgstr "Разрешены только буквы и цифры."
 #: .\core\validators.py:18
 #, python-format
 msgid "Port %(port)s is reserved. Choose another port."
-msgstr ""
+msgstr "Порт %(port)s зарезервирован. Выберите другой порт."
 
 #: .\core\validators.py:23
 #, python-format
 msgid "Port must be between %(min)s and %(max)s."
-msgstr ""
+msgstr "Порт должен находиться в диапазоне от %(min)s до %(max)s."
 
 #: .\dashboard\apps.py:8 .\templates\includes\sidebar.html:33
 msgid "Dashboard"
@@ -162,8 +173,8 @@ msgid "Russian"
 msgstr "Русский"
 
 #: .\settings\admin.py:21
-msgid "Главное"
-msgstr "Сгенерировать"
+msgid "General"
+msgstr "Главное"
 
 #: .\settings\admin.py:27
 msgid "Ports"
@@ -244,7 +255,7 @@ msgstr "Страница не найдена"
 
 #: .\templates\404.html:10
 msgid "The page you are looking for does not exist."
-msgstr ""
+msgstr "Страница, которую вы ищете, не существует."
 
 #: .\templates\500.html:8
 msgid "Server error"
@@ -272,8 +283,8 @@ msgstr "Выйти"
 msgid "Are you sure you want to log out?"
 msgstr "Вы уверены, что хотите выйти?"
 
-#: .\templates\account\logout.html:23 .\templates\clients\_create-modal.html:51
-#: .\templates\clients\_delete-modal.html:23
+#: .\templates\account\logout.html:23 .\templates\clients\_create-modal.html:49
+#: .\templates\clients\_delete-modal.html:22
 msgid "Cancel"
 msgstr "Отмена"
 
@@ -283,7 +294,7 @@ msgstr "Что-то пошло не так."
 
 #: .\templates\base-error.html:30
 msgid "An unexpected error occurred."
-msgstr ""
+msgstr "Произошла непредвиденная ошибка."
 
 #: .\templates\base-error.html:34
 msgid "Go to dashboard"
@@ -293,8 +304,8 @@ msgstr "На главную"
 msgid "Hysteria2 Panel"
 msgstr "Hysteria2 Панель"
 
-#: .\templates\clients\_I18n.html:6 .\templates\clients\_row.html:70
-#: .\templates\clients\_row.html:71
+#: .\templates\clients\_I18n.html:6 .\templates\clients\_row.html:67
+#: .\templates\clients\_row.html:68
 msgid "Edit"
 msgstr "Изменить"
 
@@ -306,12 +317,12 @@ msgstr "Изменить клиента"
 msgid "Create"
 msgstr "Создать"
 
-#: .\templates\clients\_I18n.html:9 .\templates\clients\_create-modal.html:9
+#: .\templates\clients\_I18n.html:9 .\templates\clients\_create-modal.html:8
 msgid "Create client"
 msgstr "Создать клиента"
 
-#: .\templates\clients\_I18n.html:10 .\templates\clients\_delete-modal.html:26
-#: .\templates\clients\_row.html:82 .\templates\clients\_row.html:83
+#: .\templates\clients\_I18n.html:10 .\templates\clients\_delete-modal.html:25
+#: .\templates\clients\_row.html:79 .\templates\clients\_row.html:80
 msgid "Delete"
 msgstr "Удалить"
 
@@ -323,39 +334,35 @@ msgstr "Онлайн"
 msgid "Offline"
 msgstr "Офлайн"
 
-#: .\templates\clients\_config-modal.html:12
+#: .\templates\clients\_config-modal.html:7
 msgid "Client config"
 msgstr "Конфигурация клиента"
 
-#: .\templates\clients\_config-modal.html:14
-msgid "Close"
-msgstr "Закрыть"
-
-#: .\templates\clients\_config-modal.html:22
+#: .\templates\clients\_config-modal.html:11
 msgid "Tap the link to copy it to clipboard."
 msgstr "Нажмите на ссылку, чтобы скопировать ее в буфер обмена."
 
-#: .\templates\clients\_config-modal.html:28
+#: .\templates\clients\_config-modal.html:17
 msgid "Copy config"
 msgstr "Скопировать конфигурацию"
 
-#: .\templates\clients\_config-modal.html:45
+#: .\templates\clients\_config-modal.html:34
 msgid "Copy"
 msgstr "Скопировать"
 
-#: .\templates\clients\_config-modal.html:48
+#: .\templates\clients\_config-modal.html:37
 msgid "Done"
 msgstr "Готово"
 
-#: .\templates\clients\_create-modal.html:26
+#: .\templates\clients\_create-modal.html:29
 msgid "Generate"
 msgstr "Сгенерировать"
 
-#: .\templates\clients\_delete-modal.html:10
+#: .\templates\clients\_delete-modal.html:7
 msgid "Delete client"
 msgstr "Удалить клиента"
 
-#: .\templates\clients\_delete-modal.html:19
+#: .\templates\clients\_delete-modal.html:15
 msgid "Are you sure you want to delete this client?"
 msgstr "Вы уверены, что хотите удалить этого клиента?"
 
@@ -371,17 +378,17 @@ msgstr "Управление доступом и лимитами."
 msgid "New Client"
 msgstr "Новый клиент"
 
-#: .\templates\clients\_row.html:52
+#: .\templates\clients\_row.html:49
 msgid "Toggle status"
 msgstr "Переключить статус"
-
-#: .\templates\clients\_row.html:60 .\templates\clients\_row.html:61
-msgid "Config"
-msgstr "Конфигурация"
 
 #: .\templates\clients\_table.html:4
 msgid "Registered Users"
 msgstr "Зарегистрированные пользователи"
+
+#: .\templates\clients\_table.html:18
+msgid "User"
+msgstr "Пользователь"
 
 #: .\templates\clients\_table.html:28
 msgid "Speed Limits"
@@ -398,6 +405,10 @@ msgstr "Действия"
 #: .\templates\clients\_table.html:47
 msgid "No clients found. Create one to get started."
 msgstr "Клиенты не найдены. Создайте первого."
+
+#: .\templates\clients\base-modal.html:20
+msgid "Close"
+msgstr "Закрыть"
 
 #: .\templates\dashboard\_bar-card.html:2
 #: .\templates\dashboard\_status-cards.html:4

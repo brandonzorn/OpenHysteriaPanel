@@ -1,0 +1,34 @@
+{% load i18n %}
+
+<div id="{% block modal_id %}{% endblock %}" class="fixed inset-0 z-50 opacity-0 pointer-events-none transition-opacity duration-200">
+  <div class="absolute inset-0 bg-black/60"></div>
+  <div class="relative z-10 min-h-screen flex items-start justify-center py-6">
+    <div
+        id="{% block modal_panel_id %}{% endblock %}"
+        class="max-w-xl w-full rounded-2xl p-6 relative overflow-hidden
+        transform transition-all duration-200 translate-y-4 scale-95
+        bg-gray-900 border border-white/10 shadow-xl shadow-black/30 max-h-[calc(100vh-3rem)] flex flex-col"
+    >
+      {% block modal_accent %}
+        <div class="{% block modal_accent_class %}bg-indigo-500/10{% endblock %} absolute -right-8 -top-8 w-32 h-32 rounded-full blur-2xl pointer-events-none"></div>
+      {% endblock %}
+
+      <div class="flex items-center justify-between shrink-0">
+        <h3{% block modal_title_id_attr %}{% endblock %} class="text-lg font-semibold text-white">
+          {% block modal_title %}{% endblock %}
+        </h3>
+        <button{% block modal_close_id_attr %}{% endblock %} class="btn-ghost p-2" type="button" aria-label="{% trans 'Close' %}">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="flex-1 overflow-y-auto min-h-0 pr-6">
+        {% block modal_body %}{% endblock %}
+      </div>
+      <div class="shrink-0">
+        {% block modal_footer %}{% endblock %}
+      </div>
+    </div>
+  </div>
+</div>
