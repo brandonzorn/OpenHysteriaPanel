@@ -12,9 +12,6 @@
         <span class="mx-1 text-gray-500">/</span>
         <span data-traffic-limit></span>
       </div>
-      <div class="client-traffic-bar-wrap" data-traffic-bar-wrap>
-        <div class="client-traffic-bar" data-traffic-bar></div>
-      </div>
     </td>
 
     <td class="client-td client-td-speed">
@@ -33,26 +30,15 @@
 
     <td class="client-td">
       <div class="client-actions">
-        <button type="button"
-          class="p-1.5 text-gray-400 hover:text-indigo-400 hover:bg-white/5 rounded-lg transition hidden"
-          data-traffic-info-button
-          title=""
-          aria-label=""
-        >
-          <span class="sr-only" data-traffic-info-text></span>
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M12 20a8 8 0 100-16 8 8 0 000 16z"/>
-          </svg>
-        </button>
-        <label class="inline-flex items-center cursor-pointer">
-          <input class="sr-only" type="checkbox" data-action="toggle" />
-          <div class="client-toggle-track w-10 h-5 rounded-full relative transition" aria-label={% trans 'Toggle status' %}>
-            <div class="client-toggle-knob w-4 h-4 bg-white rounded-full absolute top-0.5 left-0.5 transition-transform"></div>
-          </div>
+        <label class="relative inline-flex items-center cursor-pointer">
+          <input class="sr-only" type="checkbox" data-action="toggle">
+          <span class="client-toggle-track w-10 h-5 rounded-full relative transition">
+            <span class="client-toggle-knob w-4 h-4 bg-white rounded-full absolute top-0.5 left-0.5 transition-transform"></span>
+          </span>
         </label>
 
         <button type="button"
-          class="p-1.5 text-gray-400 hover:text-indigo-400 hover:bg-white/5 rounded-lg transition"
+          class="row-action-button hover:text-indigo-400"
           data-action="config"
           aria-label="{% trans 'Config' %}"
           title="{% trans 'Config' %}">
@@ -62,7 +48,7 @@
         </button>
 
         <button type="button"
-          class="p-1.5 text-gray-400 hover:text-indigo-400 hover:bg-white/5 rounded-lg transition"
+          class="row-action-button hover:text-indigo-400"
           data-action="edit"
           aria-label="{% trans 'Edit' %}"
           title="{% trans 'Edit' %}"
@@ -74,11 +60,10 @@
         </button>
 
         <button type="button"
-          class="p-1.5 text-gray-400 hover:text-red-400 hover:bg-white/5 rounded-lg transition"
+          class="row-action-button hover:text-red-400"
           data-action="delete"
           aria-label="{% trans 'Delete' %}"
           title="{% trans 'Delete' %}"
-          data-icon="delete"
         >
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5-3h4m-4 0a1 1 0 00-1 1v1h6V5a1 1 0 00-1-1m-4 0h4"/>

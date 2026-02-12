@@ -67,3 +67,6 @@
 @utility table-th-content {
     @apply block truncate min-w-0;
 }
+@utility row-action-button {
+    @apply p-1.5 text-gray-400 hover:bg-white/5 rounded-lg transition;
+}
