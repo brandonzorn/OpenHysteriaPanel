@@ -2,38 +2,6 @@
     const C = window.Clients;
     const api = C.api;
     const INFINITE_LABEL = '\u221e';
-    let trafficOverflowRaf = null;
-
-    function isOverflowing(el) {
-        return el.scrollWidth - el.clientWidth > 1;
-    }
-
-    function updateTrafficOverflow(row) {
-        const line = row.querySelector('[data-traffic-line]');
-        const infoBtn = row.querySelector('[data-traffic-info-button]');
-        if (!line || !infoBtn) return;
-
-        const wasHidden = line.classList.contains('hidden');
-        if (wasHidden) line.classList.remove('hidden');
-
-        const overflow = isOverflowing(line);
-        line.classList.toggle('hidden', overflow);
-        infoBtn.classList.toggle('hidden', !overflow);
-    }
-
-    function syncTrafficOverflow() {
-        if (!C.elements.body) return;
-        const rows = C.elements.body.querySelectorAll('tr');
-        rows.forEach(updateTrafficOverflow);
-    }
-
-    function queueTrafficOverflowSync() {
-        if (trafficOverflowRaf) return;
-        trafficOverflowRaf = requestAnimationFrame(() => {
-            trafficOverflowRaf = null;
-            syncTrafficOverflow();
-        });
-    }
 
     function renderClients(clients) {
         const body = C.elements.body;
@@ -78,17 +46,6 @@
                 trafficInfoButton.setAttribute('aria-label', trafficText);
             }
             if (trafficInfoText) trafficInfoText.textContent = trafficText;
-
-            const barWrap = row.querySelector('[data-traffic-bar-wrap]');
-            const bar = row.querySelector('[data-traffic-bar]');
-            if (limit > 0) {
-                barWrap.classList.remove('hidden');
-                const pct = Math.min(100, Math.round((used / limit) * 100));
-                bar.style.width = `${pct}%`;
-            } else {
-                barWrap.classList.add('hidden');
-                bar.style.width = '0%';
-            }
 
             const up = client.upload_limit_mbps ? String(client.upload_limit_mbps) : INFINITE_LABEL;
             const down = client.download_limit_mbps ? String(client.download_limit_mbps) : INFINITE_LABEL;
