@@ -2,20 +2,19 @@
 defineProps<{
   title: string
   iconPath: string
-  iconColor?: string
-  blurColor?: string
+  blurColor: string
+  textColor: string
 }>()
 </script>
 
 <template>
-  <div v-if="blurColor" class="card-blur" :class="blurColor"></div>
+  <div class="card-blur" :class="blurColor"></div>
   <dt class="card-stats-header">
-    <div v-if="blurColor" class="card-blur" :class="blurColor"></div>
+    <div class="card-blur" :class="blurColor"></div>
     <svg
-      v-if="iconColor"
       xmlns="http://www.w3.org/2000/svg"
       class="card-stats-header-icon"
-      :class="iconColor"
+      :class="textColor"
       fill="none"
       stroke-width="2"
       stroke="currentColor"
