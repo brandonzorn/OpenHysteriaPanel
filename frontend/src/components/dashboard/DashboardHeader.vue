@@ -1,3 +1,9 @@
+<script setup lang="ts">
+import type { HysteriaStatus } from "../../shared/types/dashboardStats";
+defineProps<{ hysteriaStatus: HysteriaStatus }>();
+</script>
+
+
 <template>
   <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
     <div>
@@ -13,15 +19,18 @@
       <div class="flex items-center px-3">
         <div id="hysteriaStatusDot" class="w-3 h-3 rounded-full mr-2 animate-pulse bg-gray-500"></div>
         <span id="hysteriaStatusText" class="uppercase font-semibold text-sm">
-          Checking...
+          {{ hysteriaStatus }}
         </span>
       </div>
 
-      <button id="restartServerButton" class="p-2 text-gray-400 hover:text-white hover:bg-white/10 rounded-lg transition-colors relative group">
+      <button id="restartServerButton"
+        class="p-2 text-gray-400 hover:text-white hover:bg-white/10 rounded-lg transition-colors relative group">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
         </svg>
-        <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 text-xs bg-black rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+        <span
+          class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 text-xs bg-black rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
           Restart Server
         </span>
       </button>

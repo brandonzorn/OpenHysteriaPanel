@@ -1,5 +1,3 @@
-import logging
-
 from django.utils import timezone
 from rest_framework import status
 from rest_framework.permissions import IsAdminUser, IsAuthenticated
@@ -11,8 +9,6 @@ from clients.models import Client
 from core.services import get_hysteria_status, get_system_stats
 
 from .serializers import ClientSerializer
-
-logger = logging.getLogger(__name__)
 
 
 class ClientViewSet(ModelViewSet):

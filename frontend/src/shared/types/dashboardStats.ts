@@ -1,3 +1,5 @@
+export type HysteriaStatus = "running" | "stopped" | "checking" | "error" | "unknown";
+
 export class NetStats {
   netRxBytes: number;
   netTxBytes: number;
@@ -42,7 +44,7 @@ export class DashboardStats {
 
   netStats: NetStats;
 
-  hysteriaStatus: string;
+  hysteriaStatus: HysteriaStatus;
 
   constructor(raw: any) {
     this.cpuPercent = raw.cpu ?? 0;
@@ -67,7 +69,7 @@ export class DashboardStats {
       raw.network_tx_bytes ?? 0
     );
     
-    this.hysteriaStatus = raw.hysteria_status ?? "loading";
+    this.hysteriaStatus = raw.hysteria_status ?? "checking";
   }
 
   private static formatBytesToGb(bytes: number): string {

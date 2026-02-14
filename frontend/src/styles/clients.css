@@ -1,0 +1,83 @@
+@layer components {
+  .client-status-badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium capitalize border;
+  }
+
+  .client-status-badge.is-active {
+    @apply bg-green-500/10 text-green-400 border-green-500/20;
+  }
+
+  .client-status-badge:not(.is-active) {
+    @apply bg-red-500/10 text-red-400 border-red-500/20;
+  }
+
+  .client-status-dot {
+    @apply w-1.5 h-1.5 rounded-full mr-1.5;
+  }
+
+  .client-status-badge.is-active .client-status-dot {
+    @apply bg-green-400;
+  }
+
+  .client-status-badge:not(.is-active) .client-status-dot {
+    @apply bg-red-400;
+  }
+}
+
+@utility client-td {
+  @apply px-6 py-4 align-middle text-center;
+}
+
+@utility client-row {
+  &>td {
+    @apply client-td;
+  }
+}
+
+@utility client-base {
+  @apply flex items-center justify-center;
+}
+
+@utility client-td-user {
+  @apply client-base gap-3 font-medium text-white;
+}
+
+@utility client-traffic-line {
+  @apply client-base;
+}
+
+@utility client-traffic-bar-wrap {
+  @apply w-24 h-1 bg-gray-700 rounded-full mt-2 mx-auto;
+}
+
+@utility client-traffic-bar {
+  @apply h-1 rounded-full bg-indigo-500;
+}
+
+@utility client-td-speed {
+  @apply font-mono text-xs text-center;
+}
+
+@utility client-status-center {
+  @apply flex items-center justify-center;
+}
+
+@utility client-actions {
+  @apply inline-flex items-center justify-center gap-2;
+}
+
+@utility table-thead {
+  @apply client-td uppercase text-xs font-semibold tracking-wider text-gray-400 align-middle;
+}
+
+@utility table-th {
+  @apply px-6 py-4 align-middle text-center uppercase text-xs font-semibold tracking-wider text-gray-400;
+}
+
+@utility table-th-content {
+  @apply block truncate min-w-0;
+}
+
+@utility row-action-button {
+  @apply p-1.5 text-gray-400 hover:bg-white/5 rounded-lg transition;
+}

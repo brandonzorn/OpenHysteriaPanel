@@ -1,5 +1,5 @@
 import { onBeforeUnmount, onMounted, ref } from "vue";
-import { fetchDashboardStats } from "../shared/api";
+import { fetchDashboardStats } from "../shared/api/dashboard";
 import { DashboardStats } from "../shared/types/dashboardStats";
 
 

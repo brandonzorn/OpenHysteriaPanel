@@ -2,6 +2,7 @@
 
 @import "./styles/utilities.css";
 @import "./styles/dashboard.css";
+@import "./styles/clients.css";
 
 @layer base {
   html {

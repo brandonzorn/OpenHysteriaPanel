@@ -12,7 +12,7 @@ const { stats, loading, error, refresh } = useDashboard(2000);
 <template>
   <AppLayout>
     <div class="space-y-6">
-      <DashboardHeader />
+      <DashboardHeader :hysteriaStatus="stats.hysteriaStatus"/>
       <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 auto-rows-fr">
         <StatusCards :stats="stats" />
       </div>
