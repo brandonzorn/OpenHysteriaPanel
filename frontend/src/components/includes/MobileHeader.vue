@@ -1,0 +1,15 @@
+<script setup lang="ts">
+import { openSidebar } from "@/composables/useSidebar";
+</script>
+
+<template>
+  <header
+    class="h-16 flex items-center px-6 lg:hidden border-b border-white/10 bg-gray-900/50 backdrop-blur-md sticky top-0 z-10">
+    <button @click="openSidebar" class="text-gray-400 hover:text-white transition-colors">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+    <h2 class="text-lg font-semibold ml-4">HysteriaPanel</h2>
+  </header>
+</template>

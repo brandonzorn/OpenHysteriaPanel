@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@import "./styles/utilities.css";
+@import "./styles/dashboard.css";
+
+@layer base {
+  html {
+    @apply antialiased;
+  }
+
+  body {
+    @apply bg-gray-900 text-gray-100 font-sans antialiased min-h-screen bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-gray-900 via-gray-900 to-black;
+  }
+
+  *:focus-visible {
+    @apply outline-none ring-2 ring-indigo-500 ring-offset-2 ring-offset-slate-950;
+  }
+}

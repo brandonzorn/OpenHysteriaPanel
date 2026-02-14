@@ -1,0 +1,35 @@
+@utility nav-link {
+    @apply flex items-center gap-3 w-full px-4 py-3 text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition-all duration-200 font-medium;
+}
+
+@utility nav-link-active {
+     @apply bg-indigo-500/15 text-indigo-300 border border-indigo-500/20;
+}
+
+@utility label-text {
+    @apply block text-sm text-gray-400 mb-2;
+}
+
+@utility input-field {
+    @apply w-full rounded-lg bg-gray-900/70 border border-white/20 px-3 py-2 text-white placeholder:text-gray-500 focus:outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-500/30;
+}
+
+@utility btn-primary {
+    @apply bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg transition shadow-lg shadow-indigo-500/20;
+}
+
+@utility btn-danger {
+    @apply bg-red-500/90 hover:bg-red-500 text-white font-medium rounded-lg transition;
+}
+
+@utility btn-ghost {
+    @apply text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition;
+}
+
+@utility checkbox-field {
+    @apply h-4 w-4 accent-indigo-500;
+}
+
+@utility glass-card {
+    @apply bg-gray-800/15 border border-white/10 shadow-xl shadow-black/20 backdrop-blur-sm;
+}
